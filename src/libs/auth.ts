@@ -81,5 +81,16 @@ export const authOptions: NextAuthOptions = {
     }),
   ],
 
+  logger: {
+    error(code, metadata) {
+      console.error("🔴 NEXTAUTH ERROR:", code, metadata);
+    },
+    warn(code) {
+      console.warn("⚠️ NEXTAUTH WARNING:", code);
+    },
+    debug(code, metadata) {
+      console.log("🔵 NEXTAUTH DEBUG:", code, metadata);
+}
+}
   // debug: process.env.NODE_ENV === "developement",
 };
