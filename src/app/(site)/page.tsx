@@ -1,4 +1,3 @@
-import BlogSection from "@/components/Blog";
 import CallToAction from "@/components/CallToAction";
 import Clients from "@/components/Home/Clients";
 import Features from "@/components/Home/Features";
@@ -10,6 +9,8 @@ import Pricing from "@/components/Pricing";
 import Support from "@/components/Support";
 import { Metadata } from "next";
 import { integrations } from "../../../integrations.config";
+import { sanityClient } from '@/libs/sanity';
+
 
 export const metadata: Metadata = {
   title: "AI Tool - Next.js Template for AI Tools",
@@ -29,7 +30,6 @@ export default function Home() {
       </section>
       <Clients />
       <Support />
-      {integrations.isSanityEnabled && <BlogSection />}
       <CallToAction />
       <Newsletter />
     </>
