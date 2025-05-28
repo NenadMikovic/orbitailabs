@@ -6,12 +6,12 @@ import Link from "next/link";
 
 export default function UserDropdown({ name }: { name?: string | null }) {
   const [open, setOpen] = useState(false);
-  const menuRef = useRef<HTMLDivElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Close dropdown when clicking outside (desktop)
+  // Click outside closes dropdown
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(e.target as Node)) {
+      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
         setOpen(false);
       }
     };
@@ -21,10 +21,10 @@ export default function UserDropdown({ name }: { name?: string | null }) {
 
   return (
     <>
-      {/* Desktop Hover Dropdown */}
+      {/* Desktop Hover Wrapper */}
       <div
-        className="relative z-50 hidden sm:block"
-        ref={menuRef}
+        className="relative z-50 hidden sm:inline-block"
+        ref={wrapperRef}
         onMouseEnter={() => setOpen(true)}
         onMouseLeave={() => setOpen(false)}
       >
@@ -35,7 +35,7 @@ export default function UserDropdown({ name }: { name?: string | null }) {
         </button>
 
         {open && (
-          <div className="absolute right-0 mt-2 w-48 rounded-md bg-dark border border-white/10 shadow-lg z-50">
+          <div className="absolute right-0 mt-2 w-48 rounded-md bg-dark border border-white/10 shadow-lg">
             <Link
               href="/account"
               className="block px-4 py-2 text-sm text-white hover:bg-white/10"
@@ -54,7 +54,7 @@ export default function UserDropdown({ name }: { name?: string | null }) {
       </div>
 
       {/* Mobile Modal */}
-      <div className="block sm:hidden" ref={menuRef}>
+      <div className="block sm:hidden" ref={wrapperRef}>
         <button
           onClick={() => setOpen(true)}
           className="text-sm text-white hover:text-opacity-75 px-4 py-2 rounded-md bg-dark border border-white/20"
