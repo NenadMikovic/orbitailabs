@@ -28,7 +28,7 @@ export default function UserDropdown({ name }: { name?: string | null }) {
       {open && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
           <div className="bg-dark w-[90%] max-w-sm p-6 rounded-md border border-white/10 shadow-lg text-white space-y-3">
-            <h2 className="text-lg mb-2">Account Menu</h2>
+            <h2 className="text-lg mb-2">Dashboard</h2>
 
             <Link
               href="/account"

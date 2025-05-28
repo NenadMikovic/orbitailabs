@@ -65,6 +65,7 @@ const Signin = () => {
       if (callback?.ok && !callback?.error) {
         toast.success("Logged in successfully");
         setLoader(false);
+        window.location.href = "/account";
         return;
       }
     });
