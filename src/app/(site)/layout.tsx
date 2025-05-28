@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={plusJakarta.className}>
-      <body className="scrollbar-gutter-stable">
+      <body className="pr-[calc(100vw_-_100%)] overflow-y-scroll">
         <div className='isolate'>
           <NextTopLoader
             color='#8646F4'
