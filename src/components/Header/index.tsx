@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 import logo from "../../../public/images/logo/logo.svg";
 import DropDown from "./DropDown";
 import menuData from "./menuData";
+import { Menu } from "@headlessui/react";
+
+
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -121,16 +124,52 @@ const Header = () => {
 
             <div className="mt-7 flex items-center gap-6 lg:mt-0">
               {session ? (
-                <>
-                  <p>{session?.user?.name}</p>
-                  <button
-                    aria-label="Sign Out button"
-                    onClick={() => signOut()}
-                    className="text-sm text-white hover:text-opacity-75"
-                  >
-                    Sign Out
-                  </button>
-                </>
+                <Menu as="div" className="relative inline-block text-left">
+    <Menu.Button className="inline-flex items-center gap-2 text-sm text-white hover:text-opacity-75">
+      {session.user?.name || "Account"}
+      <svg
+        className="h-4 w-4"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="currentColor"
+        viewBox="0 0 20 20"
+      >
+        <path
+          fillRule="evenodd"
+          d="M5.23 7.21a.75.75 0 011.06.02L10 11.292l3.71-4.06a.75.75 0 111.08 1.04l-4.25 4.65a.75.75 0 01-1.08 0l-4.25-4.65a.75.75 0 01.02-1.06z"
+          clipRule="evenodd"
+        />
+      </svg>
+    </Menu.Button>
+
+    <Menu.Items className="absolute right-0 mt-2 w-40 origin-top-right bg-dark text-white border border-gray-700 rounded-md shadow-lg z-50">
+      <div className="p-1">
+        <Menu.Item>
+          {({ active }) => (
+            <Link
+              href="/account"
+              className={`block px-4 py-2 text-sm rounded ${
+                active ? "bg-white/10" : ""
+              }`}
+            >
+              My Account
+            </Link>
+          )}
+        </Menu.Item>
+        <Menu.Item>
+          {({ active }) => (
+            <button
+              onClick={() => signOut()}
+              className={`block w-full text-left px-4 py-2 text-sm rounded ${
+                active ? "bg-white/10" : ""
+              }`}
+            >
+              Sign Out
+            </button>
+          )}
+        </Menu.Item>
+      </div>
+    </Menu.Items>
+  </Menu>
               ) : (
                 <>
                   <Link
