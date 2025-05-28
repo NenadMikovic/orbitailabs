@@ -1,4 +1,4 @@
-import AccountClient from './AccountClient';
+import AccountClient from '@/components/account/AccountClient';
 
 export default function AccountPage() {
   return <AccountClient />;
