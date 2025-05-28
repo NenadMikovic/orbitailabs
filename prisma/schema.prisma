@@ -47,6 +47,7 @@ model User {
   password              String?
   passwordResetToken    String?   @unique
   passwordResetTokenExp DateTime?
+  location              String?
   accounts              Account[]
   sessions              Session[]
 }
