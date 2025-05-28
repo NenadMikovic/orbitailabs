@@ -8,7 +8,6 @@ export default function UserDropdown({ name }: { name?: string | null }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
 
-  // Click outside closes dropdown
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
       if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
@@ -21,14 +20,10 @@ export default function UserDropdown({ name }: { name?: string | null }) {
 
   return (
     <>
-      {/* Desktop Hover Wrapper */}
-      <div
-        className="relative z-50 hidden sm:inline-block"
-        ref={wrapperRef}
-        onMouseEnter={() => setOpen(true)}
-        onMouseLeave={() => setOpen(false)}
-      >
+      {/* Desktop */}
+      <div className="relative z-50 hidden sm:inline-block" ref={wrapperRef}>
         <button
+          onClick={() => setOpen((prev) => !prev)}
           className="text-sm text-white hover:text-opacity-75 px-4 py-2 rounded-md bg-dark border border-white/20"
         >
           {name ?? "Account"}
@@ -53,7 +48,7 @@ export default function UserDropdown({ name }: { name?: string | null }) {
         )}
       </div>
 
-      {/* Mobile Modal */}
+      {/* Mobile */}
       <div className="block sm:hidden" ref={wrapperRef}>
         <button
           onClick={() => setOpen(true)}
