@@ -8,10 +8,12 @@ import logo from "../../../public/images/logo/logo.svg";
 import DropDown from "./DropDown";
 import menuData from "./menuData";
 import { Menu } from "@headlessui/react";
+import { usePreventBodyScrollLock } from "@/hooks/usePreventBodyScrollLock";
 
 
 
 const Header = () => {
+  usePreventBodyScrollLock();
   const [navigationOpen, setNavigationOpen] = useState(false);
   const [stickyMenu, setStickyMenu] = useState(false);
 

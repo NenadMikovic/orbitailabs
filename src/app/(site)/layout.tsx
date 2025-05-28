@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en' className={plusJakarta.className}>
-      <body className="pr-[calc(100vw_-_100%)] overflow-y-scroll">
+      <body>
         <div className='isolate'>
           <NextTopLoader
             color='#8646F4'
