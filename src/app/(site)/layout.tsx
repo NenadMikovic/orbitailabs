@@ -2,7 +2,6 @@ import '@/styles/animate.css';
 import '@/styles/prism-vsc-dark-plus.css';
 import '@/styles/star.css';
 import '@/styles/tailwind.css';
-import './globals.css';
 
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
