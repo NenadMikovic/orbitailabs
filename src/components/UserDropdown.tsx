@@ -7,16 +7,30 @@ import Link from "next/link";
 export default function UserDropdown({ name }: { name?: string | null }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLDivElement>(null);
+  const ignoreClickRef = useRef(false);
 
   useEffect(() => {
     const handleClickOutside = (e: MouseEvent) => {
-      if (wrapperRef.current && !wrapperRef.current.contains(e.target as Node)) {
+      if (
+        !ignoreClickRef.current &&
+        wrapperRef.current &&
+        !wrapperRef.current.contains(e.target as Node)
+      ) {
         setOpen(false);
       }
     };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
+
+  const handleMenuClick = () => {
+    ignoreClickRef.current = true;
+    setTimeout(() => {
+      ignoreClickRef.current = false;
+    }, 200); // prevents premature outside click
+    setOpen(false);
+  };
 
   return (
     <>
@@ -32,21 +46,17 @@ export default function UserDropdown({ name }: { name?: string | null }) {
         {open && (
           <div className="absolute right-0 mt-2 w-48 rounded-md bg-dark border border-white/10 shadow-lg">
             <Link
-  href="/account"
-  className="block px-4 py-2 text-sm text-white hover:bg-white/10"
-  onClick={(e) => {
-    e.preventDefault(); // prevent premature navigation
-    setTimeout(() => {
-      window.location.href = "/account"; // manually navigate after dropdown closes
-    }, 100); // slight delay
-    setOpen(false);
-  }}
->
-  My Account
-</Link>
-
+              href="/account"
+              className="block px-4 py-2 text-sm text-white hover:bg-white/10"
+              onClick={handleMenuClick}
+            >
+              My Account
+            </Link>
             <button
-              onClick={() => signOut()}
+              onClick={() => {
+                handleMenuClick();
+                signOut();
+              }}
               className="w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10"
             >
               Sign Out
