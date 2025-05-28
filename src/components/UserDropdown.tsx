@@ -20,6 +20,7 @@ export default function UserDropdown({ name }: { name?: string | null }) {
 
   return (
     <>
+      {/* Desktop Dropdown */}
       <div className="relative z-50 hidden sm:block" ref={menuRef}>
         <button
           onClick={() => setOpen(!open)}
@@ -29,25 +30,26 @@ export default function UserDropdown({ name }: { name?: string | null }) {
         </button>
 
         {open && (
-  <div className="absolute right-0 mt-2 w-48 rounded-md bg-dark border border-white/10 shadow-lg z-50">
-    <Link
-      href="/account"
-      className="block px-4 py-2 text-sm text-white hover:bg-white/10"
-      onClick={(e) => {
-        e.stopPropagation(); // prevent closing too early
-        setTimeout(() => setOpen(false), 50); // slight delay
-      }}
-    >
-      My Account
-    </Link>
-    <button
-      onClick={() => signOut()}
-      className="w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10"
-    >
-      Sign Out
-    </button>
-  </div>
-)}
+          <div className="absolute right-0 mt-2 w-48 rounded-md bg-dark border border-white/10 shadow-lg z-50">
+            <Link href="/account">
+              <span
+                onClick={() => setOpen(false)}
+                className="block px-4 py-2 text-sm text-white hover:bg-white/10 cursor-pointer"
+              >
+                My Account
+              </span>
+            </Link>
+            <button
+              onClick={() => {
+                setOpen(false);
+                signOut();
+              }}
+              className="w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10"
+            >
+              Sign Out
+            </button>
+          </div>
+        )}
       </div>
 
       {/* Mobile Modal */}
@@ -63,15 +65,19 @@ export default function UserDropdown({ name }: { name?: string | null }) {
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80">
             <div className="bg-dark w-[90%] max-w-sm p-6 rounded-md border border-white/10 shadow-lg">
               <h2 className="text-white text-lg mb-4">Account Menu</h2>
-              <Link
-                href="/account"
-                className="block px-4 py-2 text-sm text-white hover:bg-white/10"
-                onClick={() => setOpen(false)}
-              >
-                My Account
+              <Link href="/account">
+                <span
+                  onClick={() => setOpen(false)}
+                  className="block px-4 py-2 text-sm text-white hover:bg-white/10 cursor-pointer"
+                >
+                  My Account
+                </span>
               </Link>
               <button
-                onClick={() => signOut()}
+                onClick={() => {
+                  setOpen(false);
+                  signOut();
+                }}
                 className="w-full text-left px-4 py-2 text-sm text-white hover:bg-white/10"
               >
                 Sign Out
