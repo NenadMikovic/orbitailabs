@@ -36,25 +36,22 @@ const Hero = () => {
             />
 
             <span className='hero-subtitle-text'>
-              Launch Your AI Startup with
+              Deep dive into intelligent automation
             </span>
           </span>
           <h1 className='xl:text-heading-1 mb-6 text-3xl font-extrabold text-white sm:text-5xl'>
-            OpenAI + Next.js SaaS Boilerplate and Starter Kit
+            Designed by traders. Powered by AI. Trusted by results.
           </h1>
 
           <p className='mx-auto mb-9 max-w-[500px] font-medium md:text-lg'>
-            Ideal for developers looking to build SaaS applications using OpenAI
-            and Next.js, this starter kit comes with pre-configured and
-            pre-built examples, making it easier to quickly kickstart your AI
-            startup.
+            Professionally engineered system, developed by active traders and AI engineers, tailored for those who want more control, more safety, and smarter returns.
           </p>
 
           <Link
             href='/ai-examples'
             className='hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80'
           >
-            Try AI Examples
+            Try Stellaris
           </Link>
         </div>
       </div>
