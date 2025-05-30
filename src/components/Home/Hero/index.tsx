@@ -55,17 +55,46 @@ const Hero = () => {
           </Link>
         </div>
       </div>
+{/* <!-- bg circles --> */}
+        <div className="relative top-18">
+          <div className="pointer-events-none absolute inset-0 -z-10 -my-55 overflow-hidden">
+            <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[925px] -translate-x-1/2">
+              <Image
+                src="/images/blur/blur-13.svg"
+                alt="blur-sm"
+                fill
+                className="max-w-none"
+              />
+            </div>
+            <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[778px] -translate-x-1/2">
+              <Image
+                src="/images/blur/blur-14.svg"
+                alt="blur-sm"
+                fill
+                className="max-w-none"
+              />
+            </div>
+            <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[584px] -translate-x-1/2">
+              <Image
+                src="/images/blur/blur-15.svg"
+                alt="blur-sm"
+                fill
+                className="max-w-none"
+              />
+            </div>
+          </div>
+          <div className="pricing-circle absolute left-1/2 top-0 h-[830px] w-full max-w-[830px] -translate-x-1/2 rounded-full bg-dark"></div>
 
+          <div className="absolute -top-30 left-1/2 -z-1 h-60 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
+            <div className="stars"></div>
+            <div className="stars2"></div>
+          </div>
+        </div>
       <div
         className='relative mx-auto mt-17 aspect-1170/411 w-full max-w-[1170px]'
         data-wow-delay='0.1s'
       >
-        <Image
-          className='mx-auto'
-          src='./images/hero/hero.svg'
-          alt='hero'
-          fill
-        />
+        
       </div>
     </section>
   );
