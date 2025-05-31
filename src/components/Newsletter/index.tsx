@@ -4,11 +4,11 @@ const Newsletter = () => {
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <div className="flex flex-wrap items-center justify-between gap-10">
           <div className="w-full max-w-[352px]">
-            <h3 className="mb-2 text-heading-5 font-semibold text-white">
-              News & Update
+            <h3 className="mb-2 text-heading-5 font-semibold text-white whitespace-normal sm:whitespace-nowrap">
+              Private access: 10% off your first month
             </h3>
             <p className="font-medium">
-              Keep up to date with everything about our tool
+              Get an exclusive discount code directly to your inbox.
             </p>
           </div>
           <div className="w-full max-w-[534px]">
@@ -19,12 +19,12 @@ const Newsletter = () => {
                     id="newsletterEmail"
                     type="email"
                     name="newsletterEmail"
-                    placeholder="Enter your Email"
+                    placeholder="Enter your email address"
                     className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-hidden focus:border-purple"
                   />
                 </div>
-                <button className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-7 py-3.5 text-sm text-white shadow-button hover:shadow-none">
-                  Subscribe
+                <button className="whitespace-nowrap button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-7 py-3.5 text-sm text-white shadow-button hover:shadow-none">
+                  Claim Offer
                 </button>
               </div>
             </form>

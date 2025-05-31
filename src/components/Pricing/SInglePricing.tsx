@@ -31,7 +31,14 @@ const SinglePricing = ({ price }: any) => {
   };
 
   return (
-    <div className="wow fadeInUp pricing-item-border relative z-20 overflow-hidden rounded-3xl bg-dark px-8 pb-10 pt-12.5 xl:px-10">
+    <div
+  className={`wow fadeInUp pricing-item-border relative z-20 overflow-hidden rounded-3xl px-8 pb-10 pt-12.5 xl:px-10 transition-transform duration-300
+    ${
+      price.nickname === "Large"
+        ? "border-2 border-purple-400 bg-gradient-to-br from-[#3D2B58] via-[#2C1E47] to-[#1F1635] shadow-lg"
+        : "bg-dark"
+    }`}
+>
       <span className="absolute right-9 top-9">
         <Image
           src={
@@ -49,55 +56,71 @@ const SinglePricing = ({ price }: any) => {
 
       <h3 className="mb-5.5 text-heading-6 font-semibold text-white">
         {price.nickname === "Small" && "Starter"}
-        {price.nickname === "Medium" && "Medium"}
-        {price.nickname === "Large" && "Business"}
+        {price.nickname === "Medium" && "Pro"}
+        {price.nickname === "Large" && "Elite"}
       </h3>
+      <p className="mb-5.5 text-sm text-gray-300">
+  {price.nickname === "Small" && "Lightweight. Fast. Purpose-built."}
+  {price.nickname === "Medium" && "Elevated structure. Strategic execution."}
+  {price.nickname === "Large" && "Unrestricted. Intelligent. Unstoppable."}
+</p>
 
       <div className="flex items-center gap-3.5">
         <h2 className="pricing-gradient-text text-custom-1 font-bold">
-          ${" "}
+          €{" "}
           {(price.unit_amount / 100).toLocaleString("en-US", {
-            currency: "USD",
+            currency: "EUR",
           })}
         </h2>
 
         <p className="font-medium">
           /month <br />
-          (billed annually)
+          (instant access)
         </p>
       </div>
+
 
       <div className="pricing-gradient-divider my-10 h-[1px] w-full"></div>
 
       {price.nickname === "Small" && (
         <ul className="flex flex-col gap-4">
-          <OfferItem text="Subscription with levels" />
-          <OfferItem text="Advanced features included" />
-          <OfferItem text="Shared workspaces & tools" />
-          <OfferItem text="Premium versions functionality" />
-          <OfferItem text="Customizing the outputs" />
-          <OfferItem text="Priority customer support" />
+          <OfferItem text="Precision-tuned entries"/>
+          <OfferItem text="Core engine activation hours" />
+          <OfferItem text="Locked-in risk protocol" />
+          <OfferItem text="Multi-dimensional zone logic" />
+          <OfferItem text="Shadow-layer buffer alignment" disabled/>
+          <OfferItem text="Dynamic exposure calibration" disabled/>
+          <OfferItem text="Structural shift tracking" disabled/>
+          <OfferItem text="Self-correcting recovery system" disabled/>
+          <OfferItem text="Adaptive evolution engine" disabled/>
         </ul>
       )}
 
       {price.nickname === "Medium" && (
         <ul className="flex flex-col gap-4">
-          <OfferItem text="Subscription with levels" />
-          <OfferItem text="Advanced features included" />
-          <OfferItem text="Shared workspaces & tools" />
-          <OfferItem text="Premium versions functionality" />
-          <OfferItem text="Customizing the outputs" />
-          <OfferItem text="Priority customer support" />
+          <OfferItem text="Precision-tuned entries" />
+          <OfferItem text="Core engine activation hours" />
+          <OfferItem text="Locked-in risk protocol" />
+          <OfferItem text="Multi-dimensional zone logic" />
+          <OfferItem text="Shadow-layer buffer alignment" />
+          <OfferItem text="Dynamic exposure calibration"/>
+          <OfferItem text="Structural shift tracking" disabled/>
+          <OfferItem text="Self-correcting recovery system" disabled/>
+          <OfferItem text="Adaptive evolution engine" disabled/>
         </ul>
       )}
+
       {price.nickname === "Large" && (
         <ul className="flex flex-col gap-4">
-          <OfferItem text="Subscription with levels" />
-          <OfferItem text="Advanced features included" />
-          <OfferItem text="Shared workspaces & tools" />
-          <OfferItem text="Premium versions functionality" />
-          <OfferItem text="Customizing the outputs" />
-          <OfferItem text="Priority customer support" />
+          <OfferItem text="Precision-tuned entries" />
+          <OfferItem text="Core engine activation hours" />
+          <OfferItem text="Locked-in risk protocol" />
+          <OfferItem text="Multi-dimensional zone logic" />
+          <OfferItem text="Shadow-layer buffer alignment" />
+          <OfferItem text="Dynamic exposure calibration" />
+          <OfferItem text="Structural shift tracking" />
+          <OfferItem text="Self-correcting recovery system" />
+          <OfferItem text="Adaptive evolution engine" />
         </ul>
       )}
 

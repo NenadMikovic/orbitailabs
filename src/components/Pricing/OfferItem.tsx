@@ -75,13 +75,60 @@ const icon1 = (
   </svg>
 );
 
-const OfferItem = ({ text }: { text: string }) => {
+const OfferItem = ({ text, disabled = false }: { text: string; disabled?: boolean }) => {
   return (
-    <li className="flex items-center gap-5">
-      {icon1}
-      <span className="font-medium">{text}</span>
+    <li className={`flex items-center gap-5 ${disabled ? "opacity-50" : ""}`}>
+      {disabled ? lockedIcon : checkIcon}
+      <span className="font-medium text-gray-200">{text}</span>
     </li>
   );
 };
+
+const lockedIcon = (
+  <svg
+    width="25"
+    height="24"
+    viewBox="0 0 25 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="12.5" cy="12" r="12" fill="rgba(255,255,255,0.06)" />
+    <path
+      d="M12.5 7C13.88 7 15 8.12 15 9.5V11H10V9.5C10 8.12 11.12 7 12.5 7Z"
+      stroke="#F3EEFF"
+      strokeWidth="1.5"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <rect
+      x="10"
+      y="11"
+      width="5"
+      height="5"
+      rx="1"
+      stroke="#F3EEFF"
+      strokeWidth="1.5"
+    />
+  </svg>
+);
+
+const checkIcon = (
+  <svg
+    width="24"
+    height="24"
+    viewBox="0 0 24 24"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <circle cx="12" cy="12" r="12" fill="rgba(0,255,128,0.1)" />
+    <path
+      d="M8.5 12.5L11 15L16 9"
+      stroke="#00FFA3"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export default OfferItem;
