@@ -4,4 +4,5 @@ export type Review = {
   userDesignation: string;
   userImage: string;
   description: string;
+  rating?: number;
 };

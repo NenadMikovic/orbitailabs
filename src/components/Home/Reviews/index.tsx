@@ -25,10 +25,70 @@ const Reviews = () => {
     <>
       <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
         <SectionTitle
-          subTitle="Wall of love"
-          title="What Our User Says"
-          paragraph="Build SaaS AI applications using OpenAI and Next.js, this kit comes with pre-configured and pre-built examples, making it easier to quickly kickstart your AI startup."
+          subTitle="Echoes from the Network"
+          title="Results, Not Promises"
+          paragraph="These aren’t testimonials. They’re field reports from traders using the tech in action."
         />
+      
+        <div className="flex justify-center mt-6">
+  <div className="flex items-center gap-4 text-center">
+    {/* SVG Logo on the left */}
+    <img
+  src="/images/reviews/reviews-logo.svg"
+  alt="Reviews Logo"
+  className="w-15 h-15 text-black dark:text-white"
+/>
+
+
+    {/* Text content */}
+    <div>
+      <div className="text-xl font-semibold text-black dark:text-white">
+        Ratings and Reviews
+      </div>
+      <div className="flex items-center justify-center gap-1 mt-1">
+        <span className="text-2xl font-bold text-black dark:text-white">
+          4.7
+        </span>
+        <div className="flex items-center gap-[2px]">
+          {[...Array(4)].map((_, i) => (
+            <svg
+              key={i}
+              className="h-7 w-7 text-orange-500 fill-current"
+              viewBox="0 0 20 20"
+            >
+              <path d="M10 15l-5.878 3.09L5.5 12.3.5 8.21l6.061-.88L10 2l2.939 5.33 6.061.88-5 4.09 1.378 5.79z" />
+            </svg>
+          ))}
+          {/* Half star */}
+          <svg className="h-7 w-7 fill-current" viewBox="0 0 20 20">
+            <defs>
+              <clipPath id="half-star">
+                <rect x="0" y="0" width="10" height="20" />
+              </clipPath>
+            </defs>
+            <path
+              d="M10 15l-5.878 3.09L5.5 12.3.5 8.21l6.061-.88L10 2l2.939 5.33 6.061.88-5 4.09 1.378 5.79z"
+              fill="#e5e7eb"
+            />
+            <path
+              d="M10 15l-5.878 3.09L5.5 12.3.5 8.21l6.061-.88L10 2l2.939 5.33 6.061.88-5 4.09 1.378 5.79z"
+              fill="#f97316"
+              clipPath="url(#half-star)"
+            />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<br />
+<p className="mb-4 text-center text-sm text-gray-400">
+  This feedback was collected entirely through our automated AI assistant. Want to share yours? Simply start a chat.<br />
+  In accordance with GDPR regulations, personal identifiers have been removed to ensure user privacy.
+</p>
+
 
         <div
           className={`grid grid-cols-1 gap-7.5 sm:grid-cols-2 lg:grid-cols-3 ${
@@ -36,19 +96,19 @@ const Reviews = () => {
           }`}
         >
           <div className="space-y-7.5">
-            {reviewsData.slice(0, 9).map((review) => (
+            {reviewsData.slice(0, 5).map((review) => (
               <SingleReview key={review.id} review={review} />
             ))}
           </div>
 
           <div className="hidden space-y-7.5 sm:block">
-            {reviewsData.slice(9, 18).map((review) => (
+            {reviewsData.slice(5, 10).map((review) => (
               <SingleReview key={review.id} review={review} />
             ))}
           </div>
 
           <div className="hidden space-y-7.5 lg:block">
-            {reviewsData.slice(18, 27).map((review) => (
+            {reviewsData.slice(10, 15).map((review) => (
               <SingleReview key={review.id} review={review} />
             ))}
           </div>
@@ -70,12 +130,14 @@ const Reviews = () => {
               showContent ? "translate-y-4 transition-transform" : ""
             } ${scrollContent ? "translate-y-0" : ""}`}
           >
-            {showContent ? "Okay, I get the point" : "Show more..."}
+            {showContent ? "Collapse Reviews" : "Keep Reading"}
           </button>
         </div>
+        
       </div>
+      
     </>
+    
   );
 };
-
 export default Reviews;
