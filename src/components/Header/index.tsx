@@ -126,7 +126,7 @@ const Header = () => {
             <div className="mt-7 flex items-center gap-6 lg:mt-0">
               {session ? (
                 
-    <UserDropdown />
+    <UserDropdown name={session.user?.name} />
 
               ) : (
                 <>
