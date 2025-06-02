@@ -122,7 +122,12 @@ const Header = () => {
             <div className="mt-7 flex items-center gap-6 lg:mt-0">
               {session ? (
                 <>
-                  <p>{session?.user?.name}</p>
+                  <p><Link
+  href="/dashboard"
+  className="text-sm text-white hover:text-opacity-75"
+>
+  Dashboard
+</Link></p>
                   <button
                     aria-label="Sign Out button"
                     onClick={() => signOut()}
