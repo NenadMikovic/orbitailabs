@@ -123,8 +123,8 @@ const Header = () => {
               {session ? (
                 <>
                   <p><Link
-  href="/dashboard"
-  className="text-sm text-white hover:text-opacity-75"
+                      href="/account"
+                      className="border border-white/20 hover:border-purple-500 bg-white/5 hover:bg-white/10 rounded-md px-4 py-2 text-sm text-white backdrop-blur-sm transition duration-200"
 >
   Dashboard
 </Link></p>
