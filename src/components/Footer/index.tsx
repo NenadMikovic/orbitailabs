@@ -31,9 +31,7 @@ const Footer = () => {
               </Link>
 
               <p className="mb-12 xl:w-4/5">
-                Build SaaS AI applications using OpenAI and Next.js, this kit
-                comes with pre-configured and pre-built examples, making it
-                easier to quickly kickstart your AI startup.
+                Professionally engineered system, developed by active traders and AI engineers, tailored for those who want more control, more safety, and smarter returns.
               </p>
 
               <div className="flex items-center gap-5">
@@ -106,7 +104,7 @@ const Footer = () => {
               </div>
 
               <p className="mt-5.5 font-medium">
-                AI Tool, LLC. All rights reserved.
+                OrbitAI Labs. All rights reserved.
               </p>
             </div>
 

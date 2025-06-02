@@ -14,8 +14,8 @@ import { sanityClient } from '@/libs/sanity';
 
 
 export const metadata: Metadata = {
-  title: "AI Tool - Next.js Template for AI Tools",
-  description: "This is Home for AI Tool",
+  title: "OrbitAI Labs | AI-Powered Trading with Stellaris",
+  description: "Stellaris is a fully autonomous trading bot by OrbitAI Labs. Set it up once, activate your license, and let it trade with precision. No emotions, just results.",
   // other metadata
 };
 
@@ -23,15 +23,22 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Features /> 
+      <section id="features">
+  <Features />
+</section>
+<section id="pricing">
       <Pricing />
+</section>
       <Newsletter />
+      <section id="features-list">
         <FeaturesList />
-        <section className="relative z-20 overflow-hidden pb-20 pt-22.5 lg:pt-27.5 xl:pt-32.5 2xl:pt-45">
+        </section>
+        <section id="reviews" className="relative z-20 overflow-hidden pb-20 pt-22.5 lg:pt-27.5 xl:pt-32.5 2xl:pt-45">
         <Reviews />
       </section>
-      <Clients />
+      <section id="faq">
       <Faq />
+      </section>
       <CallToAction />
     </>
   );

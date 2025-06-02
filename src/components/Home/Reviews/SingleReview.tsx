@@ -3,6 +3,7 @@ import Image from "next/image";
 
 const SingleReview = ({ review }: { review: Review }) => {
   const rating = review.rating ?? 0;
+  console.log('Raw rating:', review.rating, 'Type:', typeof review.rating);
   return (
     <div className="user-border-gradient relative overflow-hidden rounded-[19px] px-8 py-9">
       <div className="flex items-center gap-4.5">
@@ -40,7 +41,7 @@ const SingleReview = ({ review }: { review: Review }) => {
             viewBox="0 0 20 20"
           >
             <defs>
-              <clipPath id={`clip-${index}`}>
+              <clipPath id={`clip-${review.id}-${index}`}>
                 <rect
                   x="0"
                   y="0"
@@ -50,7 +51,7 @@ const SingleReview = ({ review }: { review: Review }) => {
               </clipPath>
             </defs>
             <path
-              clipPath={`url(#clip-${index})`}
+              clipPath={`url(#clip-${review.id}-${index})`}
               d="M10 15l-5.878 3.09L5.5 12.3.5 8.21l6.061-.88L10 2l2.939 5.33 6.061.88-5 4.09 1.378 5.79z"
             />
           </svg>

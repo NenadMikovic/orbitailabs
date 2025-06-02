@@ -144,7 +144,7 @@ const SinglePricing = ({ price }: any) => {
         </svg>
       </button>
 
-      <p className="mt-4 text-center text-sm">No extra hidden charge</p>
+      <p className="mt-4 text-center text-sm">No extra hidden charge<br/>Cancel anytime</p>
 
       {/* <!-- bg shapes --> */}
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">

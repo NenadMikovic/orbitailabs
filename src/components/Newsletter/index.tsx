@@ -7,7 +7,7 @@ const Newsletter = () => {
             <h3 className="mb-2 text-heading-5 font-semibold text-white whitespace-normal sm:whitespace-nowrap">
               Private access: 10% off your first month
             </h3>
-            <p className="font-medium">
+            <p className="font-medium sm:whitespace-nowrap">
               Get an exclusive discount code directly to your inbox.
             </p>
           </div>

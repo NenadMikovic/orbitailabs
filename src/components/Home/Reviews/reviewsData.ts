@@ -6,122 +6,136 @@ const reviewsData: Review[] = [
     userName: 'M*** H******',
     userDesignation: '@mh',
     userImage: '/images/user/default-user.svg',
-    rating: 5,
+    rating: 4.5,
     description:
-      'ruler characteristic present neighborhood sister available caught then over pound threw page anywhere secret mark whenever went disease dollar hearing partly plenty somewhere aware',
+      "It’s been on my VPS for a week now. Small profits every day, nothing huge, but I’ll take consistency over wild swings any day."
   },
   {
     id: 19, // Remains
-    userName: 'Alfred Montgomery',
+    userName: 'A***** M**********',
     userDesignation: '@Olivia',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'local month pale negative last real card north plane thumb seldom gently lie shot floor animal introduced straw fellow applied ago anyway closer bag',
+      "I made some tweaks to the risk percentage and stop loss logic, and it fits my strategy better now. Cool that you can customize it if you know what you're doing.",
   },
   {
     id: 45, // Remains
-    userName: 'Marvin Williamson',
+    userName: 'M***** W*********',
     userDesignation: '@Jeanette',
     userImage: '/images/user/default-user.svg',
+    rating: 4.5,
     description:
-      'state poet carried toward weak corner answer till give play seven bridge finest morning wool or although who twenty elephant slide swam being mix',
+      'I check MT5 once a day just out of curiosity, but Stellaris basically handles everything. No stress.',
   },
   {
     id: 38, // Remains
-    userName: 'David Hudson',
+    userName: 'D**** H*****',
     userDesignation: '@Hilda',
     userImage: '/images/user/default-user.svg',
+    rating: 4.5,
     description:
-      'quiet type situation between cattle oxygen could tank class chose social thumb while indicate receive into equally right engineer morning thee promised quite hurry',
+      'I’m not making huge money, but I haven’t had a red week since I started using it. That’s good enough for me.',
   },
   {
     id: 8, // Remains
-    userName: 'Hannah Ruiz',
+    userName: 'H***** R***',
     userDesignation: '@Mitchell',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'freedom public door tall most getting hungry order green only worry parallel obtain yard honor there pitch broke fifth globe development musical push shirt',
+      'I like that it closes trades at night. I sleep better knowing nothing stupid happens while I’m not watching.',
   },
   {
     id: 21,
-    userName: 'Jay Alexander', // Remains
+    userName: 'J** A********', // Remains
     userDesignation: '@Chris',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'success remain while fruit shut wait plate instrument experiment shaking layers avoid heat directly dangerous example must family research scared baby did aid least',
+      'It doesn’t open trades all the time, which is a good sign. When it does, it actually looks like a smart entry, not random.',
   },
   {
     id: 63,
-    userName: 'Fred Graham', // Remains
+    userName: 'F*** G*****', // Remains
     userDesignation: '@Allie',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'reader halfway choose nails trail kitchen conversation eventually electric courage noun roar construction chose outer oxygen there yard spent pot sport exercise young recall',
+      'I messaged support when I couldn’t figure something out, and they helped quickly. Everything’s been smooth since.',
   },
   {
     id: 28, // Remains
-    userName: 'Chris Cunningham',
+    userName: 'C**** C*********',
     userDesignation: '@Blake',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'crew this composed believed memory stopped close important had recent rocket layers nose tube valley built busy apartment imagine born stiff acres positive press',
+      'I’m using it on two different accounts with different settings. One is aggressive, one is safe. Both are doing fine so far.',
   },
   {
     id: 73, // Remains
-    userName: 'Polly Webster',
+    userName: 'P**** W******',
     userDesignation: '@Adelaide',
     userImage: '/images/user/default-user.svg',
+    rating: 4.5,
     description:
-      'seven morning title himself been ice may plural complete not badly anyway principal rain wood have accept busy down like widely one shallow tent',
+      'I set it up last Monday and haven’t touched it since. Checked today and I’m actually up a bit. Super low effort, which is what I wanted.',
   },
   {
     id: 14, // Remains
-    userName: 'Gerald Bowers',
+    userName: 'G***** B*****',
     userDesignation: '@Corey',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'couple window storm probably away hunt canal dirt such pencil science establish palace are myself entire feel pleasant milk island nearer ring-3 merely imagine',
+      'Honestly didn’t believe in bots before this one, but Stellaris surprised me. It just runs and doesn’t do anything crazy. Quietly doing its job.',
   },
   {
     id: 801, // Remains
-    userName: 'Dylan Cole',
+    userName: 'D**** C***',
     userDesignation: '@Lina',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'yet during worried measure stiff sport against baseball melted remove team whispered writing cross back lamp smaller not bank shout scale bring naturally though',
+      'I’ve used a bunch of bots before and most of them burned my account. Stellaris is the first one that actually respects risk. It’s slow, but in a good way.',
   },
 
   {
     id: 3, // Remains
-    userName: 'Tyler Brooks',
+    userName: 'T**** B*****',
     userDesignation: '@Daisy',
     userImage: '/images/user/default-user.svg',
+    rating: 4.5,
     description:
-      'may tight moment figure ready whose married branch tip feathers field station feet union pole night broke tell difficulty lunch complete gentle relationship again',
+      'I was skeptical at first, but it doesn’t overtrade like most bots I’ve tried. It waits for clean setups. Not bad at all.',
   },
   {
     id: 74, // Remains
-    userName: 'Winifred Pratt',
+    userName: 'W******* P****',
     userDesignation: '@Virginia',
     userImage: '/images/user/default-user.svg',
+    rating: 4.5,
     description:
-      'replied spider system standard daily practical party heat aboard aloud author instrument frozen mouth tower corner location alive friendly locate farm bad machinery lamp',
+      'I haven’t changed any settings, just left it on default. It’s been working better than my manual trades lately.',
   },
   {
     id: 25, // Remains
-    userName: 'Esther Webster',
+    userName: 'E***** W******',
     userDesignation: '@Jorge',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'sort noon composed progress believed threw mother lift mental many silk equally scientist small most correct occasionally title outer blew old stood life around',
+      'Started it on a small account just to see how it behaves. Didn’t expect much, but it’s actually been managing trades better than I expected. No big drawdowns so far.',
   },
   {
     id: 98, // Remains
-    userName: 'Maude Haynes',
+    userName: 'M**** H*****',
     userDesignation: '@Fannie',
     userImage: '/images/user/default-user.svg',
+    rating: 5,
     description:
-      'add structure neighbor fine never acres regular definition earlier once such require yet break leather do sheet hidden easily report met sat climb underline',
+      'Took me 10 minutes to get it running. I just activated the license and let it go. No problems so far.',
   },
 ];
 

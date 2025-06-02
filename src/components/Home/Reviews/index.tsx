@@ -36,7 +36,7 @@ const Reviews = () => {
     <img
   src="/images/reviews/reviews-logo.svg"
   alt="Reviews Logo"
-  className="w-15 h-15 text-black dark:text-white"
+  className="w-14 h-14 text-black dark:text-white"
 />
 
 
@@ -87,7 +87,7 @@ const Reviews = () => {
 <p className="mb-4 text-center text-sm text-gray-400">
   This feedback was collected entirely through our automated AI assistant. Want to share yours? Simply start a chat.<br />
   In accordance with GDPR regulations, personal identifiers have been removed to ensure user privacy.
-</p>
+</p><br />
 
 
         <div
