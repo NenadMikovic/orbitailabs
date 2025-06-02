@@ -7,10 +7,6 @@ import { useEffect, useState } from "react";
 import logo from "../../../public/images/logo/logo.svg";
 import DropDown from "./DropDown";
 import menuData from "./menuData";
-import UserDropdown from "@/components/UserDropdown";
-
-
-
 
 const Header = () => {
   const [navigationOpen, setNavigationOpen] = useState(false);
@@ -125,9 +121,16 @@ const Header = () => {
 
             <div className="mt-7 flex items-center gap-6 lg:mt-0">
               {session ? (
-                
-    <UserDropdown name={session.user?.name} />
-
+                <>
+                  <p>{session?.user?.name}</p>
+                  <button
+                    aria-label="Sign Out button"
+                    onClick={() => signOut()}
+                    className="text-sm text-white hover:text-opacity-75"
+                  >
+                    Sign Out
+                  </button>
+                </>
               ) : (
                 <>
                   <Link

@@ -110,7 +110,7 @@ const Footer = () => {
 
             <div className="w-full max-w-[571px]">
               <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
-                <FooterLinkList title="Products" links={productsLink} />
+                <FooterLinkList title="Stellaris" links={productsLink} />
 
                 <FooterLinkList title="Company" links={companiesLink} />
 

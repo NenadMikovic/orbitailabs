@@ -3,33 +3,33 @@ import { FooterLink } from "@/types/footerLink";
 export const productsLink: FooterLink[] = [
   {
     id: 1,
-    title: "Features",
-    href: "#",
+    title: "Home",
     newTab: false,
+    href: "/",
   },
   {
     id: 2,
-    title: "Integrations",
-    href: "#",
+    title: "Features",
     newTab: false,
-  },
-  {
-    id: 3,
-    title: "Pricing",
-    href: "#",
-    newTab: false,
+    href: "/#features",
   },
   {
     id: 4,
-    title: "Changes log",
-    href: "#",
+    title: "Pricing",
     newTab: false,
+    href: "/#pricing",
+  },
+  {
+    id: 3,
+    title: "Getting Started",
+    newTab: false,
+    href: "/#features-list",
   },
   {
     id: 5,
-    title: "Roadmap",
-    href: "#",
+    title: "Results",
     newTab: false,
+    href: "/#reviews",
   },
 ];
 
