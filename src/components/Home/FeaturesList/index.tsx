@@ -188,7 +188,7 @@ const FeaturesList = () => {
                   <div className="relative z-20">
                     <span className="icon-border relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
                       <Image
-                        src="/images/features/icon-07.svg"
+                        src="/images/features/live-chat.svg"
                         alt="icon"
                         width={32}
                         height={32}
@@ -196,11 +196,10 @@ const FeaturesList = () => {
                     </span>
 
                     <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
-                      Highly Customizable
+                      24/7 Support. AI or Human.
                     </h3>
                     <p className="font-medium">
-                      Build SaaS AI applications using OpenAI and Next.js,
-                      quickly kickstart your AI startup.
+                      Whether you prefer instant answers or real conversation, we've got you covered. Use our smart AI assistant any time — or chat live with a real support agent.
                     </p>
                   </div>
 

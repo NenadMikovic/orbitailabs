@@ -37,19 +37,19 @@ export const companiesLink: FooterLink[] = [
   {
     id: 11,
     title: "Terms & Conditions",
-    href: "#",
+    href: "/terms-and-conditions",
     newTab: false,
   },
   {
     id: 12,
     title: "Privacy Policy",
-    href: "#",
+    href: "/privacy-policy",
     newTab: false,
   },
   {
     id: 13,
     title: "Refund Policy",
-    href: "#",
+    href: "/refund-policy",
     newTab: false,
   },
 ];
