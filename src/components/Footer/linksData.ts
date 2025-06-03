@@ -36,25 +36,19 @@ export const productsLink: FooterLink[] = [
 export const companiesLink: FooterLink[] = [
   {
     id: 11,
-    title: "Privacy Policy",
+    title: "Terms & Conditions",
     href: "#",
     newTab: false,
   },
   {
     id: 12,
-    title: "Refund Policy",
+    title: "Privacy Policy",
     href: "#",
     newTab: false,
   },
   {
     id: 13,
-    title: "Support",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 14,
-    title: "Community",
+    title: "Refund Policy",
     href: "#",
     newTab: false,
   },
@@ -62,32 +56,20 @@ export const companiesLink: FooterLink[] = [
 export const supportsLink: FooterLink[] = [
   {
     id: 21,
-    title: "Features",
-    href: "#",
+    title: "Contact Us",
+    href: "/support",
     newTab: false,
   },
   {
     id: 32,
-    title: "Integrations",
-    href: "#",
+    title: "Submit a Ticket",
+    href: "/support",
     newTab: false,
   },
   {
     id: 43,
-    title: "Pricing",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 54,
-    title: "Changes log",
-    href: "#",
-    newTab: false,
-  },
-  {
-    id: 65,
-    title: "Roadmap",
-    href: "#",
+    title: "FAQ",
+    href: "/#faq",
     newTab: false,
   },
 ];

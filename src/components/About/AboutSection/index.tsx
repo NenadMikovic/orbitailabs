@@ -9,23 +9,21 @@ const AboutSection = () => {
         <div className="flex flex-wrap justify-between gap-11 xl:flex-nowrap">
           <div className="wow fadeInLeft w-full max-w-[570px]">
             <span className="hero-subtitle-text mb-5 block font-semibold">
-              About Our App
+              Need Help? We’re Here.
             </span>
 
             <h2 className="mb-5 text-2xl font-extrabold text-white sm:text-4xl xl:text-heading-2">
-              10,000+ Writers, Marketers, & Business owners Love AI Tool.
+              Human Support Meets AI Efficiency.
             </h2>
             <p className="mb-9 font-medium">
-              Build SaaS AI applications using OpenAI and Next.js, this kit
-              comes with pre-configured and pre-built examples, making it easier
-              to quickly kickstart your AI startup.
+              Our hybrid support system combines smart AI Assistants with real human agents — so you always get the help you need, fast.
             </p>
 
             <a
               href="#"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
-              Start Writing - It{`'`}s Free
+              Start Live Chat
             </a>
           </div>
 

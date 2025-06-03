@@ -3,6 +3,7 @@ import Team from "@/components/About/Team";
 import Video from "@/components/About/Video";
 import Breadcrumb from "@/components/Breadcrumb";
 import CallToAction from "@/components/CallToAction";
+import Faq from "@/components/Faq";
 import Clients from "@/components/Home/Clients";
 import Features from "@/components/Home/Features";
 import Reviews from "@/components/Home/Reviews";
@@ -16,23 +17,15 @@ export const metadata: Metadata = {
   // other metadata
 };
 
-const AboutPage = () => {
+const SupportPage = () => {
   return (
     <>
-      <Breadcrumb pageTitle="About Page" />
+      <Breadcrumb pageTitle="Support" />
       <AboutSection />
       <Support />
-      <Features />
-      <Video />
-      <Team />
-      <section className="relative z-20 overflow-hidden pb-20">
-        <Reviews />
-      </section>
-      <Clients />
-      <CallToAction />
-      <Newsletter />
+      <Faq />
     </>
   );
 };
 
-export default AboutPage;
+export default SupportPage;

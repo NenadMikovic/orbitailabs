@@ -62,7 +62,7 @@ const CallToAction = () => {
             </p>
 
             <Link
-              href="/"
+              href="/#pricing"
               className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
             >
               Choose Your Plan

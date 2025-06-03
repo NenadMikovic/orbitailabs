@@ -112,7 +112,7 @@ const Footer = () => {
               <div className="flex flex-col gap-10 sm:flex-row sm:justify-between">
                 <FooterLinkList title="Stellaris" links={productsLink} />
 
-                <FooterLinkList title="Company" links={companiesLink} />
+                <FooterLinkList title="Legal & Policies" links={companiesLink} />
 
                 <FooterLinkList title="Support" links={supportsLink} />
               </div>

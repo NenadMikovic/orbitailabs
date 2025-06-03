@@ -48,9 +48,9 @@ const Support = () => {
           </div>
 
           <SectionTitle
-            subTitle="Need Any Help?"
-            title="Contact With Us"
-            paragraph="Build SaaS AI applications using OpenAI and Next.js, this kit comes with pre-configured and pre-built examples, making it easier to quickly kickstart your AI startup."
+            subTitle="Need Assistance?"
+            title="Submit a Support Request"
+            paragraph="If you need personalized help or have a question our AI assistant can't answer, our team is here for you. Just submit a ticket and we’ll get back to you shortly. We are also available at support@orbitailabs.com"
           />
 
           {/* <!-- support form --> */}
@@ -73,7 +73,7 @@ const Support = () => {
                       id="name"
                       type="text"
                       name="name"
-                      placeholder="Enter your Name"
+                      placeholder="Enter your name"
                       required
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-hidden focus:border-purple"
                     />
@@ -91,7 +91,7 @@ const Support = () => {
                       id="email"
                       type="email"
                       name="email"
-                      placeholder="Enter your Email"
+                      placeholder="Enter your email address"
                       required
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-3 text-white outline-hidden focus:border-purple"
                     />
@@ -103,12 +103,12 @@ const Support = () => {
                       htmlFor="message"
                       className="mb-2.5 block font-medium text-white"
                     >
-                      Message
+                      Leave us a message
                     </label>
                     <textarea
                       id="message"
                       name="message"
-                      placeholder="Type your message"
+                      placeholder="Type your question or issue here..."
                       rows={6}
                       required
                       className="w-full rounded-lg border border-white/[0.12] bg-white/[0.05] px-6 py-5 outline-hidden focus:border-purple"
@@ -121,7 +121,7 @@ const Support = () => {
                       type="submit"
                       className="hero-button-gradient inline-flex rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
                     >
-                      Send Message
+                      Submit Request
                     </button>
                   </div>
                 </div>
