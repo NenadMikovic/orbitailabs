@@ -199,7 +199,7 @@ const FeaturesList = () => {
                       24/7 Support. AI or Human.
                     </h3>
                     <p className="font-medium">
-                      Whether you prefer instant answers or real conversation, we've got you covered. Use our smart AI assistant any time — or chat live with a real support agent.
+                      Whether you prefer instant answers or real conversation, we&apos;ve got you covered. Use our smart AI assistant any time — or chat live with a real support agent.
                     </p>
                   </div>
 

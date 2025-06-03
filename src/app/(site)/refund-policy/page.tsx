@@ -52,7 +52,7 @@ const RefundPolicyPage = () => {
           In rare cases, we may issue a refund outside this policy if:
         </p>
         <ul className="list-disc ml-5 mt-2 text-white/70 space-y-1 text-base">
-          <li>You've experienced a critical technical issue confirmed by our support team.</li>
+          <li>You&apos;ve experienced a critical technical issue confirmed by our support team.</li>
           <li>Your payment was duplicated or made in error.</li>
         </ul>
 

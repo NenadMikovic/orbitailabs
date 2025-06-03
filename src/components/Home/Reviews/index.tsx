@@ -4,6 +4,7 @@ import SectionTitle from "@/components/Common/SectionTitle";
 import { useEffect, useState } from "react";
 import SingleReview from "./SingleReview";
 import reviewsData from "./reviewsData";
+import Image from 'next/image';
 
 const Reviews = () => {
   const [showContent, setShowContent] = useState(false);
