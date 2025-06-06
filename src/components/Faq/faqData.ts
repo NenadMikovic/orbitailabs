@@ -11,7 +11,7 @@ const faqData: FAQ[] = [
     id: 102,
     question: "Which assets does the bot trade?",
     answer:
-      "The bot automatically detects whether you're trading forex, indices, or commodities, and adapts its risk settings accordingly. You're free to trade any symbol supported by your broker — the bot adjusts to your market.",
+      "The bot automatically detects whether you're trading forex, indices, commodities or crypto and adapts its risk settings accordingly. You're free to trade any symbol supported by your broker — the bot adjusts to your market.",
   },
   {
     id: 7,
@@ -35,13 +35,13 @@ const faqData: FAQ[] = [
     id: 9,
     question: "Does the bot use AI?",
     answer:
-      "While MT5 doesn’t support live AI execution, the bot’s strategy is built on AI-driven insights and pattern recognition. The intelligence is baked into the logic — refined by machine learning, executed by precision code.",
+      "While MT4/MT5 platforms do not support live AI execution, the bot’s strategy is built on AI-driven insights and pattern recognition. The intelligence is baked into the logic — refined by machine learning, executed by precision code.",
   },
   {
     id: 101,
     question: "What platforms is the bot compatible with?",
     answer:
-      "The bot is built for MetaTrader 5 (MT5), a globally trusted platform used by millions of traders for its power, flexibility, and automation support.",
+      "The bot is built for MetaTrader 4 (MT4) and MetaTrader 5 (MT5), globally trusted platforms used by millions of traders for their power, flexibility, and automation support.",
   },
   {
     id: 10,

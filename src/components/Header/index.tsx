@@ -105,6 +105,7 @@ const Header = () => {
                     ) : (
                       <Link
                         href={`${menuItem.path}`}
+                        onClick={() => setNavigationOpen(false)}
                         className={`hover:nav-gradient relative border border-transparent px-4 py-1.5 text-sm hover:text-white ${
                           pathUrl === menuItem.path
                             ? "nav-gradient text-white"
@@ -140,12 +141,14 @@ const Header = () => {
                 <>
                   <Link
                     href="/auth/signin"
+                    onClick={() => setNavigationOpen(false)}
                     className="text-sm text-white hover:text-opacity-75"
                   >
                     Sign In
                   </Link>
                   <Link
                     href="/auth/signup"
+                    onClick={() => setNavigationOpen(false)}
                     className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
                   >
                     Sign up

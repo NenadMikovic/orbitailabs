@@ -127,7 +127,7 @@ const FeaturesList = () => {
                   <div className="relative z-20">
                     <span className="icon-border relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
                       <Image
-                        src="/images/features/icon-05.svg"
+                        src="/images/features/market.svg"
                         alt="icon"
                         width={32}
                         height={32}
@@ -135,13 +135,28 @@ const FeaturesList = () => {
                     </span>
 
                     <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
-                      All Essential SaaS Pages
-                    </h3>
-                    <p className="font-medium">
-                      Build SaaS AI applications using OpenAI and Next.js, this
-                      kit comes with pre-configured and pre-built examples,
-                      making it easier to quickly kickstart.
-                    </p>
+  Proven Across Markets
+</h3>
+
+<p className="font-medium">
+  Stellaris has been tested for reliability and consistency, and optimized on a diverse range of assets. Its logic adapts to volatility, delivering consistent results across major financial instruments.
+</p>
+
+<p className="font-medium text-white mt-4">
+  Tested & Proven Profitable On<sup>*</sup>:
+</p>
+
+<p>
+  • Indices: UK100, GER40 (DAX), US30, US100, US2000 (RTY), SP500 <br />
+  • Commodities: Gold (XAUUSD), Silver (XAGUSD) <br />
+  • Forex: All Major & Minor Pairs <br />
+  • Crypto: BTC & ETH
+</p>
+
+<p className="text-xs text-white opacity-60 mt-4">
+  <sup>*</sup>Past performance does not guarantee future results. Profitability depends on market conditions and carries inherent risk.
+</p>
+
                   </div>
 
                   {/* <!-- bg shapes --> */}
@@ -188,7 +203,7 @@ const FeaturesList = () => {
                   <div className="relative z-20">
                     <span className="icon-border relative mx-auto mb-13.5 inline-flex h-20 w-full max-w-[80px] items-center justify-center rounded-full">
                       <Image
-                        src="/images/features/live-chat.svg"
+                        src="/images/features/account-holder1.svg"
                         alt="icon"
                         width={32}
                         height={32}
@@ -196,11 +211,32 @@ const FeaturesList = () => {
                     </span>
 
                     <h3 className="mb-4.5 text-heading-6 font-semibold text-white">
-                      24/7 Support. AI or Human.
+                      Explore the Platform with a Free Account
                     </h3>
+
+                    <p className="font-medium text-white mt-4">Curious how it works?</p><br />
                     <p className="font-medium">
-                      Whether you prefer instant answers or real conversation, we&apos;ve got you covered. Use our smart AI assistant any time — or chat live with a real support agent.
-                    </p>
+                      Create a free account and explore the actual dashboard — see your future license panel, download options, and all built-in support tools before making a purchase. No fake previews. No guessing. Just a clear look at what you're getting.
+                    </p><br />
+                    <Link
+                    href="/auth/signup"
+                    className="w-fit button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
+                  >
+                    Sign up
+                    <svg
+                      className="mt-0.5"
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14.4002 7.60002L9.2252 2.35002C9.0002 2.12502 8.6502 2.12502 8.4252 2.35002C8.2002 2.57502 8.2002 2.92502 8.4252 3.15002L12.6252 7.42502H2.0002C1.7002 7.42502 1.4502 7.67502 1.4502 7.97502C1.4502 8.27502 1.7002 8.55003 2.0002 8.55003H12.6752L8.4252 12.875C8.2002 13.1 8.2002 13.45 8.4252 13.675C8.5252 13.775 8.6752 13.825 8.8252 13.825C8.9752 13.825 9.1252 13.775 9.2252 13.65L14.4002 8.40002C14.6252 8.17502 14.6252 7.82503 14.4002 7.60002Z"
+                        fill="white"
+                      />
+                    </svg>
+                  </Link>
                   </div>
 
                   {/* <!-- bg shapes --> */}

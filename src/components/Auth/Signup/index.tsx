@@ -93,11 +93,11 @@ const Signup = () => {
                 <div className="relative py-20 pl-17.5 pr-22">
                   <div className="absolute right-0 top-0 h-full w-[1px] bg-linear-to-b from-white/0 via-white/20 to-white/0"></div>
 
-                  <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white">
-                    Unlock the Power of Writing Tool
+                  <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
+                    Step Into the Future <br />of Trading Automation
                   </h2>
                   <div className="relative aspect-61/50 w-full max-w-[427px]">
-                    <Image src="/images/signin/sigin.svg" alt="signin" fill />
+                    <Image src="/images/features/big-icon.svg" alt="signin" fill />
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@ const Signup = () => {
                           </span>
                           <input
                             type="password"
-                            placeholder="Confirm password"
+                            placeholder="Enter your password"
                             value={data.password}
                             onChange={(e) =>
                               setData({
