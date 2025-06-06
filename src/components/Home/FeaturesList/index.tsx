@@ -216,7 +216,7 @@ const FeaturesList = () => {
 
                     <p className="font-medium text-white mt-4">Curious how it works?</p><br />
                     <p className="font-medium">
-                      Create a free account and explore the actual dashboard — see your future license panel, download options, and all built-in support tools before making a purchase. No fake previews. No guessing. Just a clear look at what you're getting.
+                      Create a free account and explore the actual dashboard — see your future license panel, download options, and all built-in support tools before making a purchase. No fake previews. No guessing. Just a clear look at what you&apos;re getting.
                     </p><br />
                     <Link
                     href="/auth/signup"
