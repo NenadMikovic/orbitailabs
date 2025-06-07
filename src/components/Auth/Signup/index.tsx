@@ -86,7 +86,7 @@ const Signup = () => {
   return (
     <>
       <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">
-        <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
+        <div className="bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat mx-auto max-w-[1170px] rounded-[19px] px-4 sm:px-8 xl:px-0">
           <div className="wow fadeInUp rounded-3xl bg-white/[0.05]">
             <div className="flex">
               <div className="hidden w-full lg:block lg:w-1/2">
@@ -94,11 +94,16 @@ const Signup = () => {
                   <div className="absolute right-0 top-0 h-full w-[1px] bg-linear-to-b from-white/0 via-white/20 to-white/0"></div>
 
                   <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
-                    Step Into the Future <br />of Trading Automation
-                  </h2>
+                          Account Registration<br />
+                        </h2>
+                        <h1 style={{ fontSize: "1rem", fontWeight: "bold" }}>Create your OrbitAI Labs account to activate your dashboard, manage licenses, and unlock full access.</h1>
                   <div className="relative aspect-61/50 w-full max-w-[427px]">
-                    <Image src="/images/features/big-icon.svg" alt="signin" fill />
+                    <Image src="/images/features/spin-logo.svg" alt="signin" fill />
                   </div>
+                  <div className="absolute bottom-0 left-1/2 -z-1 h-120 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
+                                    <div className="stars"></div>
+                                    <div className="stars2"></div>
+                                  </div>
                 </div>
               </div>
 

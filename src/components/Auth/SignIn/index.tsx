@@ -74,77 +74,26 @@ const Signin = () => {
   return (
     <>
       <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">
-        <div className="mx-auto max-w-[1170px] px-4 sm:px-8 xl:px-0">
-          <div className="wow fadeInUp rounded-3xl bg-white/[0.05]">
-            <div className="flex">
-             <div className="hidden w-full lg:block lg:w-1/2 h-full">
-  <Highlighter>
-    <div className="features-box-border relative rounded-3xl h-full">
-      <div className="box-hover relative overflow-hidden rounded-3xl p-10 xl:p-15 h-full group">
-        <div className="relative z-20 h-full flex flex-col justify-center">
-          <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
-            Access OrbitAI Optimal Interface <br /><br />
-          </h2>
-          <div className="relative aspect-61/50 w-full max-w-[427px]">
-            <Image src="/images/signin/signin1.png" alt="signin" fill />
-          </div>
-        </div>
-
-        {/* Background hover shapes */}
-        <div className="pointer-events-none absolute inset-0 -z-10 -mx-28 overflow-hidden">
-          <span className="absolute bottom-0 right-0">
-            <Image
-              src="/images/features/shape-01.png"
-              alt="shape"
-              width={282}
-              height={226}
-            />
-          </span>
-          <span className="absolute left-0 top-0 aspect-1170/192 w-full">
-            <Image
-              src="/images/features/shape-02.svg"
-              alt="shape"
-              fill
-            />
-          </span>
-          <span className="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2">
-            <Image
-              src="/images/blur/blur-03.svg"
-              alt="blur-sm"
-              fill
-              className="max-w-none"
-            />
-          </span>
-          <span className="absolute bottom-0 left-1/2 h-full w-full -translate-x-1/2">
-            <Image
-              src="/images/blur/blur-04.svg"
-              alt="blur-sm"
-              fill
-              className="max-w-none"
-            />
-          </span>
-          <span className="absolute bottom-0 left-1/2 aspect-530/270 w-full max-w-[530px] -translate-x-1/2">
-            <Image
-              src="/images/blur/blur-05.svg"
-              alt="blur-sm"
-              fill
-              className="max-w-none"
-            />
-          </span>
-          <span className="absolute right-0 top-0 aspect-580/430 w-full max-w-[580px]">
-            <Image
-              src="/images/features/shape-03.svg"
-              alt="shape"
-              fill
-              className="max-w-none"
-            />
-          </span>
-        </div>
-      </div>
-    </div>
-  </Highlighter>
-</div>
-
+              <div className="bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat mx-auto max-w-[1170px] rounded-[19px] px-4 sm:px-8 xl:px-0">
+                <div className="wow fadeInUp rounded-3xl bg-white/[0.05]">
+                  <div className="flex">
+                    <div className="hidden w-full lg:block lg:w-1/2">
+                      <div className="relative py-20 pl-17.5 pr-22">
+                        <div className="absolute right-0 top-0 h-full w-[1px] bg-linear-to-b from-white/0 via-white/20 to-white/0"></div>
+      
+                        <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
+                          Secure Access Portal<br />
+                        </h2>
+                        <h1 style={{ fontSize: "1rem", fontWeight: "bold" }}>Please authenticate to enter your OrbitAI Labs dashboard and manage your account.</h1>
+                        <div className="relative aspect-61/50 w-full max-w-[427px]">
+                                            <Image src="/images/features/spin-logo.svg" alt="signin" fill />
+                                          </div>
+                                          <div className="absolute bottom-0 left-1/2 -z-1 h-120 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
+                                    <div className="stars"></div>
+                                    <div className="stars2"></div>
+                                  </div>
+                      </div>
+                    </div>
             
               <div className="w-full lg:w-1/2">
                 <div className="py-8 pl-8 pr-8 sm:py-20 sm:pl-21 sm:pr-20">
