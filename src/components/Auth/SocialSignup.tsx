@@ -5,7 +5,7 @@ const SocialSignup = () => {
   return (
     <>
       <button
-        onClick={() => signIn("google")}
+        onClick={() => signIn("google", { callbackUrl: "/account" })}
         className="flex w-full items-center justify-center gap-3 rounded-lg border border-white/[0.12] p-3.5 font-medium text-white duration-300 ease-in hover:border-purple"
       >
         <svg
