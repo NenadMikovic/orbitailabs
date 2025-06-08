@@ -1,29 +1,29 @@
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 type EmailPayload = {
   to: string;
   subject: string;
   html: string;
+  type?: "support" | "transactional"; // optional, defaults to transactional
 };
 
-// Replace with your SMTP credentials
-const smtpOptions = {
-  host: process.env.EMAIL_SERVER_HOST,
-  port: parseInt(process.env.EMAIL_SERVER_PORT || "2525"),
-  secure: false,
-  auth: {
-    user: process.env.EMAIL_SERVER_USER,
-    pass: process.env.EMAIL_SERVER_PASSWORD,
-  },
-};
+export const sendEmail = async ({
+  to,
+  subject,
+  html,
+  type = "transactional",
+}: EmailPayload) => {
+  const from =
+    type === "support"
+      ? process.env.EMAIL_FROM_SUPPORT
+      : process.env.EMAIL_FROM_NOREPLY;
 
-export const sendEmail = async (data: EmailPayload) => {
-  const transporter = nodemailer.createTransport({
-    ...smtpOptions,
-  });
-
-  return await transporter.sendMail({
-    from: process.env.EMAIL_FROM,
-    ...data,
+  return await resend.emails.send({
+    from: `OrbitAI Labs <${from}>`,
+    to,
+    subject,
+    html,
   });
 };

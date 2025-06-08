@@ -6,6 +6,9 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import EmailProvider from "next-auth/providers/email";
+import { Resend } from "resend";
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export const authOptions: NextAuthOptions = {
   pages: {
@@ -25,29 +28,24 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" },
         username: { label: "Username", type: "text", placeholder: "Jhon Doe" },
       },
-
       async authorize(credentials) {
-        // check to see if eamil and password is there
         if (!credentials?.email || !credentials?.password) {
           throw new Error("Please enter an email or password");
         }
 
-        // check to see if user already exist
         const user = await prisma.user.findUnique({
           where: {
             email: credentials.email,
           },
         });
 
-        // if user was not found
         if (!user || !user?.password) {
           throw new Error("No user found");
         }
 
-        // check to see if passwords match
         const passwordMatch = await bcrypt.compare(
           credentials.password,
-          user.password,
+          user.password
         );
 
         if (!passwordMatch) {
@@ -59,15 +57,25 @@ export const authOptions: NextAuthOptions = {
     }),
 
     EmailProvider({
-      server: {
-        host: process.env.EMAIL_SERVER_HOST!,
-        port: Number(process.env.EMAIL_SERVER_PORT),
-        auth: {
-          user: process.env.EMAIL_SERVER_USER!,
-          pass: process.env.EMAIL_SERVER_PASSWORD!,
-        },
+      from: process.env.EMAIL_FROM_NOREPLY,
+      async sendVerificationRequest({ identifier, url, provider }) {
+        const html = `
+          <div style="background:#0b0f1a;padding:24px;border-radius:12px;font-family:Arial;color:white;">
+            <h2 style="color:#9D00FF;">OrbitAI Labs Login 🔐</h2>
+            <p>Click below to access your dashboard:</p>
+            <a href="${url}" style="display:inline-block;margin-top:16px;background:linear-gradient(to right,#9D00FF,#00C2FF);padding:12px 24px;border-radius:6px;color:white;text-decoration:none;">Sign In</a>
+            <p style="margin-top:24px;font-size:12px;color:#888;">If you didn’t request this email, just ignore it.</p>
+          </div>
+        `;
+
+        await resend.emails.send({
+          from: `OrbitAI Labs <${provider.from}>`,
+          to: identifier,
+          subject: "Your OrbitAI Magic Login Link",
+          html,
+          text: `Sign in to OrbitAI Labs:\n${url}`,
+        });
       },
-      from: process.env.EMAIL_FROM!,
     }),
 
     GitHubProvider({
@@ -80,6 +88,4 @@ export const authOptions: NextAuthOptions = {
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
-
-  // debug: process.env.NODE_ENV === "developement",
 };
