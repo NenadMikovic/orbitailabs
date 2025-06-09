@@ -62,7 +62,7 @@ const Signup = () => {
       .post("/api/register", { name, email, password })
       .then(() => {
         toast.success("Account created! Please check your inbox to verify your email and activate your account.", {
-          duration: 6000, // 6 seconds (default is 4000ms)
+          duration: 8000, // 8 seconds
         });
         setData({ name: "", email: "", password: "" });
         setLoader(false);

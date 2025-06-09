@@ -46,7 +46,7 @@ useEffect(() => {
 
   if (verified === "true") {
     toast.success("Email successfully verified! You can now sign in using your email and password.", {
-      duration: 6000, // in milliseconds
+      duration: 8000, // in milliseconds
     });
   }
 }, [searchParams, router]);
