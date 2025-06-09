@@ -1,8 +1,13 @@
-"use client";
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 
-import VerifyEmailClient from "@/components/VerifyEmailClient";
+// Dynamically import the client-only component
+const VerifyEmailClient = dynamic(() => import("@/components/VerifyEmailClient"), { ssr: false });
 
 export default function VerifyEmailPage() {
-  return <VerifyEmailClient />;
+  return (
+    <Suspense fallback={<div className="text-white text-center pt-10">Verifying email...</div>}>
+      <VerifyEmailClient />
+    </Suspense>
+  );
 }
-
