@@ -12,6 +12,8 @@ export default async function AccountPage() {
     redirect("/auth/signin");
   }
 
+  
+
   return (
     <>
       <AccountForm />

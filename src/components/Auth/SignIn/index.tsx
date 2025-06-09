@@ -48,13 +48,12 @@ useEffect(() => {
 
   if (verified === "true") {
     toast.success("Email successfully verified! Logging you in...");
-    
-    // Auto-login the user or redirect manually
     setTimeout(() => {
       router.push("/account");
     }, 2500);
   }
-}, []);
+}, [searchParams, router]); // ✅ Add these dependencies
+;
 
   const [remember, setRemember] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
