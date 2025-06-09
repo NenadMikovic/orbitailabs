@@ -27,16 +27,13 @@ export default function VerifyEmailClient() {
         console.log("Verify API response:", json); // Debug info
 
         if (res.ok && json.success) {
-          toast.success("Email verified successfully!");
           setMessage("Redirecting to sign-in...");
           setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
         } else {
-          toast.error(json.error || "Verification failed.");
           setMessage(json.error || "Invalid or expired verification link.");
         }
       } catch (err: any) {
         console.error("Verification API error:", err);
-        toast.error("Unexpected error.");
         setMessage("Unexpected error occurred.");
       } finally {
         setLoading(false);

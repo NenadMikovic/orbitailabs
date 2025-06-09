@@ -45,13 +45,11 @@ useEffect(() => {
   const verified = searchParams.get("verified");
 
   if (verified === "true") {
-    toast.success("Email successfully verified! You can now sign in using your email and password.");
-    setTimeout(() => {
-      router.push("/account");
-    }, 2500);
+    toast.success("Email successfully verified! You can now sign in using your email and password.", {
+      duration: 6000, // in milliseconds
+    });
   }
-}, [searchParams, router]); // ✅ Add these dependencies
-;
+}, [searchParams, router]);
 
   const [remember, setRemember] = useState(false);
 
