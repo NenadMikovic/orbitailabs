@@ -52,6 +52,8 @@ useEffect(() => {
 }, [searchParams, router]);
 
   const [remember, setRemember] = useState(false);
+  const [showResendOption, setShowResendOption] = useState(false);
+
 
   const loginUser = async (e: any) => {
     e.preventDefault();
@@ -70,10 +72,16 @@ useEffect(() => {
     setLoader(true);
     signIn("credentials", { ...data, redirect: false }).then((callback) => {
       if (callback?.error) {
-        toast.error(callback.error);
-        setLoader(false);
-        return;
-      }
+  if (callback.error.toLowerCase().includes("email not verified")) {
+    toast.error("Please verify your email before signing in.");
+    setShowResendOption(true);
+  } else {
+    toast.error(callback.error);
+  }
+  setLoader(false);
+  return;
+}
+
 
       if (callback?.ok && !callback?.error) {
         toast.success("Signed in successfully.");
@@ -83,6 +91,8 @@ useEffect(() => {
       }
     });
   };
+
+  
   return (
     <>
       <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">
@@ -246,6 +256,19 @@ useEffect(() => {
                           Sign in {loader && <Loader />}
                         </button>
                       </form>
+
+                      {showResendOption && (
+                        <div className="mt-4 text-sm text-white text-center">
+                          Didn’t receive a confirmation email?{" "}
+                          <Link
+                            href="/auth/resend-verification"
+                            className="text-purple underline hover:text-purple-200"
+                          >
+                            Resend verification
+                          </Link>
+                        </div>
+                      )}
+
 
                     <p className="mt-5 text-center font-medium text-white">
                       Don{`'`}t have an account?{" "}
