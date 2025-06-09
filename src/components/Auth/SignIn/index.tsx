@@ -43,18 +43,15 @@ const router = useRouter();
 
 useEffect(() => {
   const verified = searchParams.get("verified");
-  const error = searchParams.get("error");
 
   if (verified === "true") {
-    toast.success("Your email has been verified. You can now sign in using your email and password.");
+    toast.success("Email successfully verified! You can now sign in using your email and password.");
+    setTimeout(() => {
+      router.push("/account");
+    }, 2500);
   }
-
-  if (error) {
-    // Decode URI components in case the error has spaces or symbols
-    toast.error(decodeURIComponent(error));
-  }
-}, [searchParams]);
-
+}, [searchParams, router]); // ✅ Add these dependencies
+;
 
   const [remember, setRemember] = useState(false);
 
