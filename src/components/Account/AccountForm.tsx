@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import Breadcrumb from "@/components/Breadcrumb";
+import toast from "react-hot-toast";
+
 
 export default function AccountForm() {
   const [form, setForm] = useState({ name: "", email: "", location: "" });
@@ -78,6 +80,26 @@ const handlePasswordSubmit = async () => {
     setPasswordMessage(data.error || "Something went wrong.");
   }
 };
+
+const [deleting, setDeleting] = useState(false);
+
+const handleDeleteAccount = async () => {
+  if (!confirm("Are you sure you want to delete your account? This action is irreversible.")) return;
+
+  setDeleting(true);
+
+  const res = await fetch("/api/delete-account", { method: "DELETE" });
+
+  if (res.ok) {
+    toast.success("Account deleted successfully.");
+    window.location.href = "/";
+  } else {
+    toast.error("Failed to delete account.");
+  }
+
+  setDeleting(false);
+};
+
 
   return (
     <>
@@ -188,6 +210,22 @@ const handlePasswordSubmit = async () => {
       <p className="mt-4 text-sm text-green-500 text-center">{passwordMessage}</p>
     )}
   </div>
+
+  {/* 🧨 Danger Zone */}
+<div className="max-w-xl mx-auto mt-8 bg-transparent p-6 rounded-2xl border border-red-500 shadow-md">
+  <h2 className="text-xl font-semibold mb-4 text-red-500">Danger Zone</h2>
+  <p className="text-sm text-white/70 mb-4">
+    Deleting your account is permanent and cannot be undone. All of your licenses and data will be lost.
+  </p>
+  <button
+    onClick={handleDeleteAccount}
+    disabled={deleting}
+    className="bg-red-600 hover:bg-red-700 text-white py-2 px-4 rounded-lg font-medium"
+  >
+    {deleting ? "Deleting..." : "Delete My Account"}
+  </button>
+</div>
+
 </>
 
 

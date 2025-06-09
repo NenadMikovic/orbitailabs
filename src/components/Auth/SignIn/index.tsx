@@ -10,7 +10,9 @@ import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
 import z from "zod";
-import Highlighter from "@/components/Home/FeaturesList/HighLighter";
+import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect } from "react";
+
 
 const SigninSchema = z.object({
   email: z.string().email("Please enter a valid email address."),
@@ -38,6 +40,22 @@ const Signin = () => {
   });
 
   const [loader, setLoader] = useState(false);
+  const searchParams = useSearchParams();
+const router = useRouter();
+
+useEffect(() => {
+  const verified = searchParams.get("verified");
+
+  if (verified === "true") {
+    toast.success("Email successfully verified! Logging you in...");
+    
+    // Auto-login the user or redirect manually
+    setTimeout(() => {
+      router.push("/account");
+    }, 2500);
+  }
+}, []);
+
   const [remember, setRemember] = useState(false);
   const [isPassword, setIsPassword] = useState(false);
 

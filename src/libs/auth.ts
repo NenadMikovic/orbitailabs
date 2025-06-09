@@ -52,6 +52,10 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Incorrect password");
         }
 
+        if (!user.emailVerified) {
+          throw new Error("Please verify your email before logging in.");
+    }
+
         return user;
       },
     }),

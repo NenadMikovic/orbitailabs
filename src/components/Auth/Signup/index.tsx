@@ -1,4 +1,5 @@
 "use client";
+
 import axios from "axios";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
@@ -6,8 +7,6 @@ import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialSignup from "../SocialSignup";
-import SwitchOptions from "../SwitchOptions";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
 import z from "zod";
@@ -40,9 +39,6 @@ const Signup = () => {
   });
 
   const [loader, setLoader] = useState(false);
-
-  const [isPassword, setIsPassword] = useState(false);
-
   const { name, email, password } = data;
 
   const registerUser = async (e: any) => {
@@ -63,18 +59,10 @@ const Signup = () => {
     }
 
     axios
-      .post("/api/register", {
-        name,
-        email,
-        password,
-      })
+      .post("/api/register", { name, email, password })
       .then(() => {
-        toast.success("User has been registered");
-        setData({
-          name: "",
-          email: "",
-          password: "",
-        });
+        toast.success("Account created! Please check your email to confirm your account");
+        setData({ name: "", email: "", password: "" });
         setLoader(false);
       })
       .catch(() => {
@@ -84,52 +72,48 @@ const Signup = () => {
   };
 
   return (
-    <>
-      <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">
-        <div className="bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat mx-auto max-w-[1170px] rounded-[19px] px-4 sm:px-8 xl:px-0">
-          <div className="wow fadeInUp rounded-3xl bg-white/[0.05]">
-            <div className="flex">
-              <div className="hidden w-full lg:block lg:w-1/2">
-                <div className="relative py-20 pl-17.5 pr-22">
-                  <div className="absolute right-0 top-0 h-full w-[1px] bg-linear-to-b from-white/0 via-white/20 to-white/0"></div>
-
-                  <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
-                          Account Registration<br />
-                        </h2>
-                        <h1 style={{ fontSize: "1rem", fontWeight: "bold" }}>Create your OrbitAI Labs account to activate your dashboard, manage licenses, and unlock full access.</h1>
-                  <div className="relative aspect-61/50 w-full max-w-[427px]">
-                    <Image src="/images/features/spin-logo.svg" alt="signin" fill />
-                  </div>
-                  <div className="absolute bottom-0 left-1/2 -z-1 h-120 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
-                                    <div className="stars"></div>
-                                    <div className="stars2"></div>
-                                  </div>
+    <section className="pb-17.5 pt-17.5 lg:pb-22.5 xl:pb-27.5">
+      <div className="bg-[url(/images/blur/blur-18.svg)] bg-cover bg-center bg-no-repeat mx-auto max-w-[1170px] rounded-[19px] px-4 sm:px-8 xl:px-0">
+        <div className="wow fadeInUp rounded-3xl bg-white/[0.05]">
+          <div className="flex">
+            {/* Left panel */}
+            <div className="hidden w-full lg:block lg:w-1/2">
+              <div className="relative py-20 pl-17.5 pr-22">
+                <div className="absolute right-0 top-0 h-full w-[1px] bg-linear-to-b from-white/0 via-white/20 to-white/0"></div>
+                <h2 className="mb-10 max-w-[292px] text-heading-4 font-bold text-white sm:whitespace-nowrap">
+                  Account Registration<br />
+                </h2>
+                <h1 style={{ fontSize: "1rem", fontWeight: "bold" }}>
+                  Create your OrbitAI Labs account to activate your dashboard,
+                  manage licenses, and unlock full access.
+                </h1>
+                <div className="relative aspect-61/50 w-full max-w-[427px]">
+                  <Image src="/images/features/spin-logo.svg" alt="signin" fill />
+                </div>
+                <div className="absolute bottom-0 left-1/2 -z-1 h-120 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
+                  <div className="stars"></div>
+                  <div className="stars2"></div>
                 </div>
               </div>
+            </div>
 
-              <div className="w-full lg:w-1/2">
-                <div className="py-8 pl-8 pr-8 sm:py-20 sm:pl-21 sm:pr-20">
-                  <div>
-                    <SocialSignup />
+            {/* Right panel (form) */}
+            <div className="w-full lg:w-1/2">
+              <div className="py-8 pl-8 pr-8 sm:py-20 sm:pl-21 sm:pr-20">
+                <div>
+                  <SocialSignup />
 
-                    <span className="relative my-7.5 block text-center text-sm font-medium">
-                      <span className="absolute left-0 top-1/2 block h-[1px] w-22.5 bg-white/[0.12]"></span>
-                      <span className="absolute right-0 top-1/2 block h-[1px] w-22.5 bg-white/[0.12]"></span>
-                      Or sign up with email
-                    </span>
+                  <span className="relative my-7.5 block text-center text-sm font-medium">
+                    <span className="absolute left-0 top-1/2 block h-[1px] w-22.5 bg-white/[0.12]"></span>
+                    <span className="absolute right-0 top-1/2 block h-[1px] w-22.5 bg-white/[0.12]"></span>
+                    Or sign up with email
+                  </span>
 
-                    <SwitchOptions
-                      isPassword={isPassword}
-                      setIsPassword={setIsPassword}
-                    />
-
-                    {!isPassword ? (
-                      <MagicLink />
-                    ) : (
-                      <form onSubmit={registerUser}>
-                        <div className="relative mb-4">
-                          <span className="absolute left-6 top-1/2 -translate-y-1/2">
-                            <svg
+                  <form onSubmit={registerUser}>
+                    {/* Name */}
+                    <div className="relative mb-4">
+                      <span className="absolute left-6 top-1/2 -translate-y-1/2">
+                        <svg
                               width="16"
                               height="16"
                               viewBox="0 0 16 16"
@@ -145,24 +129,22 @@ const Signup = () => {
                                 fill="#918EA0"
                               />
                             </svg>
-                          </span>
-                          <input
-                            type="name"
-                            placeholder="Enter your name"
-                            value={data.name}
-                            onChange={(e) =>
-                              setData({
-                                ...data,
-                                name: e.target.value,
-                              })
-                            }
-                            className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
-                          />
-                        </div>
+                      </span>
+                      <input
+                        type="name"
+                        placeholder="Enter your name"
+                        value={data.name}
+                        onChange={(e) =>
+                          setData({ ...data, name: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
+                      />
+                    </div>
 
-                        <div className="relative mb-4">
-                          <span className="absolute left-6 top-1/2 -translate-y-1/2">
-                            <svg
+                    {/* Email */}
+                    <div className="relative mb-4">
+                      <span className="absolute left-6 top-1/2 -translate-y-1/2">
+                        <svg
                               width="16"
                               height="12"
                               viewBox="0 0 16 12"
@@ -174,24 +156,22 @@ const Signup = () => {
                                 fill="#918EA0"
                               />
                             </svg>
-                          </span>
-                          <input
-                            type="email"
-                            placeholder="Enter your email"
-                            value={data.email}
-                            onChange={(e) =>
-                              setData({
-                                ...data,
-                                email: e.target.value.toLowerCase(),
-                              })
-                            }
-                            className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
-                          />
-                        </div>
+                      </span>
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={data.email}
+                        onChange={(e) =>
+                          setData({ ...data, email: e.target.value.toLowerCase() })
+                        }
+                        className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
+                      />
+                    </div>
 
-                        <div className="relative mb-5">
-                          <span className="absolute left-6 top-1/2 -translate-y-1/2">
-                            <svg
+                    {/* Password */}
+                    <div className="relative mb-5">
+                      <span className="absolute left-6 top-1/2 -translate-y-1/2">
+                        <svg
                               width="16"
                               height="16"
                               viewBox="0 0 16 16"
@@ -214,44 +194,41 @@ const Signup = () => {
                                 </clipPath>
                               </defs>
                             </svg>
-                          </span>
-                          <input
-                            type="password"
-                            placeholder="Enter your password"
-                            value={data.password}
-                            onChange={(e) =>
-                              setData({
-                                ...data,
-                                password: e.target.value,
-                              })
-                            }
-                            className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
-                          />
-                        </div>
+                      </span>
+                      <input
+                        type="password"
+                        placeholder="Enter your password"
+                        value={data.password}
+                        onChange={(e) =>
+                          setData({ ...data, password: e.target.value })
+                        }
+                        className="w-full rounded-lg border border-white/[0.12] bg-transparent py-3.5 pl-14.5 pr-4 font-medium text-white outline-hidden focus:border-purple focus-visible:shadow-none"
+                      />
+                    </div>
 
-                        <button
-                          type="submit"
-                          className="hero-button-gradient flex w-full items-center justify-center rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
-                        >
-                          Sign up {loader && <Loader />}
-                        </button>
-                      </form>
-                    )}
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="hero-button-gradient flex w-full items-center justify-center rounded-lg px-7 py-3 font-medium text-white duration-300 ease-in hover:opacity-80"
+                    >
+                      Sign up {loader && <Loader />}
+                    </button>
+                  </form>
 
-                    <p className="mt-5 text-center font-medium text-white">
-                      Already have an account?{" "}
-                      <Link href="/auth/signin" className="text-purple">
-                        Sign in Here
-                      </Link>
-                    </p>
-                  </div>
+                  <p className="mt-5 text-center font-medium text-white">
+                    Already have an account?{" "}
+                    <Link href="/auth/signin" className="text-purple">
+                      Sign in Here
+                    </Link>
+                  </p>
                 </div>
               </div>
             </div>
+
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };
 
