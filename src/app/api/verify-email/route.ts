@@ -24,5 +24,5 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin?verified=true`);
+  return new Response(JSON.stringify({ success: true }), { status: 200 });
 }

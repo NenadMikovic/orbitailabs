@@ -12,6 +12,7 @@ export default function VerifyEmailClient() {
 
   useEffect(() => {
     const token = searchParams.get("token");
+
     if (!token) {
       setMessage("Invalid or missing token.");
       setLoading(false);
@@ -19,29 +20,28 @@ export default function VerifyEmailClient() {
     }
 
     const verify = async () => {
-  try {
-    const res = await fetch(`/api/verify-email?token=${token}`);
-    const json = await res.json();
+      try {
+        const res = await fetch(`/api/verify-email?token=${token}`);
+        const json = await res.json();
 
-    if (json.success) {
-  toast.success("Email verified!");
-  setMessage("Redirecting to login...");
-  setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
-} else {
-  toast.error(json.error || "Verification failed.");
-  setMessage(json.error || "Invalid or expired link.");
-}
+        console.log("Verify API response:", json); // Debug info
 
-  } catch (err: any) {
-    // Only show server error if it truly fails to connect
-    console.error("Verification API error:", err);
-    toast.error("Unexpected error.");
-    setMessage("Unexpected error occurred.");
-  } finally {
-    setLoading(false);
-  }
-};
-
+        if (res.ok && json.success) {
+          toast.success("Email verified successfully!");
+          setMessage("Redirecting to sign-in...");
+          setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
+        } else {
+          toast.error(json.error || "Verification failed.");
+          setMessage(json.error || "Invalid or expired verification link.");
+        }
+      } catch (err: any) {
+        console.error("Verification API error:", err);
+        toast.error("Unexpected error.");
+        setMessage("Unexpected error occurred.");
+      } finally {
+        setLoading(false);
+      }
+    };
 
     verify();
   }, [searchParams, router]);
@@ -52,8 +52,10 @@ export default function VerifyEmailClient() {
         <p>Verifying your email...</p>
       ) : (
         <>
-          <h1 className="text-2xl font-semibold mb-4">Email Verification</h1>
-          <p>{message}</p>
+          <div>
+            <h1 className="text-2xl font-semibold mb-4">Email Verification</h1>
+            <p>{message}</p>
+          </div>
         </>
       )}
     </div>
