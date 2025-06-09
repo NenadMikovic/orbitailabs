@@ -1,19 +1,20 @@
+import { Suspense } from "react";
 import Signin from "@/components/Auth/SignIn";
 import Breadcrumb from "@/components/Breadcrumb";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Sign in | AI Tool - Next.js Template for AI Tools",
+  title: "Sign in | OrbitAI Labs",
   description: "This is Sign in page for AI Tool",
-  // other metadata
 };
 
 const SigninPage = () => {
   return (
     <>
       <Breadcrumb pageTitle="Sign in" />
-
-      <Signin />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Signin />
+      </Suspense>
     </>
   );
 };
