@@ -92,6 +92,27 @@ useEffect(() => {
     });
   };
 
+  const handleResendVerification = async () => {
+  try {
+    const res = await fetch("/api/verify-email", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: data.email }),
+    });
+
+    const json = await res.json();
+
+    if (!res.ok) {
+      toast.error(json.error || "Failed to resend verification email.");
+      return;
+    }
+
+    toast.success("Verification email sent. Please check your inbox.");
+  } catch (err) {
+    toast.error("Something went wrong. Please try again.");
+  }
+};
+
   
   return (
     <>
@@ -258,16 +279,18 @@ useEffect(() => {
                       </form>
 
                       {showResendOption && (
-                        <div className="mt-4 text-sm text-white text-center">
-                          Didn’t receive a confirmation email?{" "}
-                          <Link
-                            href="/auth/resend-verification"
-                            className="text-purple underline hover:text-purple-200"
-                          >
-                            Resend verification
-                          </Link>
-                        </div>
-                      )}
+                <div className="mt-4 text-sm text-white text-center">
+                   Didn’t receive the confirmation email?{" "}
+    <button
+      type="button"
+      className="text-purple underline hover:text-purple-200"
+      onClick={handleResendVerification}
+    >
+      Resend verification
+    </button>
+  </div>
+)}
+
 
 
                     <p className="mt-5 text-center font-medium text-white">
