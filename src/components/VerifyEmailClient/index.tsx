@@ -19,24 +19,29 @@ export default function VerifyEmailClient() {
     }
 
     const verify = async () => {
-      try {
-        const res = await fetch(`/api/verify-email?token=${token}`);
-        const json = await res.json();
-        if (res.ok) {
-          toast.success("Email verified!");
-          setMessage("Redirecting to login...");
-          setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
-        } else {
-          toast.error(json.error || "Verification failed.");
-          setMessage(json.error || "Invalid or expired link.");
-        }
-      } catch (err) {
-        toast.error("Something went wrong.");
-        setMessage("Server error.");
-      } finally {
-        setLoading(false);
-      }
-    };
+  try {
+    const res = await fetch(`/api/verify-email?token=${token}`);
+    const json = await res.json();
+
+    if (json.success) {
+  toast.success("Email verified!");
+  setMessage("Redirecting to login...");
+  setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
+} else {
+  toast.error(json.error || "Verification failed.");
+  setMessage(json.error || "Invalid or expired link.");
+}
+
+  } catch (err: any) {
+    // Only show server error if it truly fails to connect
+    console.error("Verification API error:", err);
+    toast.error("Unexpected error.");
+    setMessage("Unexpected error occurred.");
+  } finally {
+    setLoading(false);
+  }
+};
+
 
     verify();
   }, [searchParams, router]);
