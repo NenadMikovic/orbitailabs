@@ -5,8 +5,6 @@ import Link from "next/link";
 import { useState } from "react";
 import toast from "react-hot-toast";
 import SocialSignup from "../SocialSignup";
-import SwitchOptions from "../SwitchOptions";
-import MagicLink from "../MagicLink";
 import Loader from "@/components/Common/Loader";
 import { integrations, messages } from "../../../../integrations.config";
 import z from "zod";
@@ -45,18 +43,20 @@ const router = useRouter();
 
 useEffect(() => {
   const verified = searchParams.get("verified");
+  const error = searchParams.get("error");
 
   if (verified === "true") {
-    toast.success("Email successfully verified! Logging you in...");
-    setTimeout(() => {
-      router.push("/account");
-    }, 2500);
+    toast.success("Your email has been verified. You can now sign in using your email and password.");
   }
-}, [searchParams, router]); // ✅ Add these dependencies
-;
+
+  if (error) {
+    // Decode URI components in case the error has spaces or symbols
+    toast.error(decodeURIComponent(error));
+  }
+}, [searchParams]);
+
 
   const [remember, setRemember] = useState(false);
-  const [isPassword, setIsPassword] = useState(false);
 
   const loginUser = async (e: any) => {
     e.preventDefault();
@@ -81,7 +81,7 @@ useEffect(() => {
       }
 
       if (callback?.ok && !callback?.error) {
-        toast.success("Logged in successfully");
+        toast.success("Signed in successfully.");
         setLoader(false);
         window.location.href = "/account";
         return;
@@ -123,14 +123,7 @@ useEffect(() => {
                       Or sign in with email
                     </span>
 
-                    <SwitchOptions
-                      isPassword={isPassword}
-                      setIsPassword={setIsPassword}
-                    />
-
-                    {!isPassword ? (
-                      <MagicLink />
-                    ) : (
+                   
                       <form onSubmit={loginUser}>
                         <div className="relative mb-4">
                           <span className="absolute left-6 top-1/2 -translate-y-1/2">
@@ -258,7 +251,6 @@ useEffect(() => {
                           Sign in {loader && <Loader />}
                         </button>
                       </form>
-                    )}
 
                     <p className="mt-5 text-center font-medium text-white">
                       Don{`'`}t have an account?{" "}

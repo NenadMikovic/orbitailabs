@@ -61,12 +61,14 @@ const Signup = () => {
     axios
       .post("/api/register", { name, email, password })
       .then(() => {
-        toast.success("Account created! Please check your email to confirm your account");
+        toast.success("Account created! Please check your inbox to verify your email and activate your account.", {
+          duration: 6000, // 6 seconds (default is 4000ms)
+        });
         setData({ name: "", email: "", password: "" });
         setLoader(false);
       })
       .catch(() => {
-        toast.error("Something went wrong");
+        toast.error("Something went wrong. Please try again.");
         setLoader(false);
       });
   };

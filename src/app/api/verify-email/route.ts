@@ -5,7 +5,7 @@ export async function GET(req: NextRequest) {
   const token = req.nextUrl.searchParams.get("token");
 
   if (!token) {
-    return NextResponse.json({ error: "Missing token" }, { status: 400 });
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin?error=MissingToken`);
   }
 
   const user = await prisma.user.findFirst({
@@ -13,7 +13,7 @@ export async function GET(req: NextRequest) {
   });
 
   if (!user) {
-    return NextResponse.json({ error: "Invalid or expired token" }, { status: 400 });
+    return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin?error=InvalidOrExpiredToken`);
   }
 
   await prisma.user.update({
@@ -24,5 +24,5 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  return NextResponse.json({ success: true });
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/signin?verified=true`);
 }
