@@ -10,6 +10,7 @@ const Support = () => {
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
+  setLoading(true);
 
   const form = e.currentTarget;
   const formData = new FormData(form);
@@ -18,8 +19,27 @@ const Support = () => {
   const email = formData.get("email") as string;
   const message = formData.get("message") as string;
 
-  // You can now send these values to your API
+  try {
+    const res = await fetch("/api/support", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ name, email, message }),
+    });
+
+    if (!res.ok) throw new Error("Failed to send");
+
+    toast.success("Support request sent successfully!");
+    form.reset(); // clear the form
+  } catch (err) {
+    console.error(err);
+    toast.error("Something went wrong. Try again later.");
+  } finally {
+    setLoading(false);
+  }
 };
+
 
 
   return (
