@@ -72,7 +72,7 @@ useEffect(() => {
     setLoader(true);
     signIn("credentials", { ...data, redirect: false }).then((callback) => {
       if (callback?.error) {
-  if (callback.error.toLowerCase().includes("email not verified")) {
+  if (callback.error.toLowerCase().includes("verify your email")) {
     toast.error("Please verify your email before signing in.");
     setShowResendOption(true);
   } else {
