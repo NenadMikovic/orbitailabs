@@ -46,7 +46,7 @@ export async function POST(req: NextRequest) {
   }
 
   const token = crypto.randomUUID();
-  const verifyUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/auth/verify-email?token=${token}`;
+  const verifyUrl = `${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-email?token=${token}`;
 
   await prisma.user.update({
     where: { id: user.id },
