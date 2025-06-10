@@ -65,7 +65,7 @@ const ForgotPassword = () => {
           Forgot your password?
         </h2>
         <p className="mb-6 text-center text-white/80">
-          Enter your email below and we'll send you a link to reset your password.
+          Enter your email below and we&apos;ll send you a link to reset your password.
         </p>
         <form onSubmit={sendEmail}>
           <div className="relative mb-5">
