@@ -25,7 +25,8 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  return new Response(JSON.stringify({ success: true }), { status: 200 });
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/verify-email?verified=true`);
+
 }
 
 export async function POST(req: NextRequest) {
