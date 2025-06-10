@@ -44,7 +44,7 @@ export async function POST(request: Request) {
         <h2>Welcome to OrbitAI Labs, ${name || "Explorer"} 👋</h2>
         <p>Thanks for signing up! Please confirm your email to activate your account:</p>
         <p>
-          <a href="${process.env.NEXT_PUBLIC_BASE_URL}/verify-email?token=${verifyToken}"
+          <a href="${process.env.NEXT_PUBLIC_BASE_URL}/api/verify-email?token=${verifyToken}"
              style="background:#9D00FF;color:white;padding:10px 20px;border-radius:6px;text-decoration:none;">
             Verify My Email
           </a>
