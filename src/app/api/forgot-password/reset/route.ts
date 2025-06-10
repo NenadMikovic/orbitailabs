@@ -19,7 +19,7 @@ export async function POST(request: NextRequest) {
   });
 
   if (!user) {
-    throw new Error("Email does not exists");
+    throw new Error("Email does not exists. Please try again.");
   }
 
   const resetToken = crypto.randomBytes(20).toString("hex");
@@ -52,11 +52,11 @@ export async function POST(request: NextRequest) {
       `,
     });
 
-    return NextResponse.json("An email has been sent to your email", {
+    return NextResponse.json("Reset password link has been sent, please check your inbox.", {
       status: 200,
     });
   } catch (error) {
-    return NextResponse.json("An error has occurred. Please try again!", {
+    return NextResponse.json("An error has occurred. Please try again.", {
       status: 500,
     });
   }
