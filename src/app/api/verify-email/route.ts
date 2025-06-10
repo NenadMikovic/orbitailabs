@@ -25,7 +25,7 @@ export async function GET(req: NextRequest) {
     },
   });
 
-  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/auth/verify-email?verified=true`);
+  return NextResponse.redirect(`${process.env.NEXT_PUBLIC_BASE_URL}/verify-email?verified=true`);
 
 }
 
