@@ -19,28 +19,12 @@ export default function VerifyEmailClient() {
       return;
     }
 
-    const verify = async () => {
-      try {
-        const res = await fetch(`/api/verify-email?token=${token}`);
-        const json = await res.json();
+     setMessage("Email verified! Redirecting to sign-in...");
+    setTimeout(() => {
+      router.push("/auth/signin?verified=true");
+    }, 2000);
 
-        console.log("Verify API response:", json); // Debug info
-
-        if (res.ok && json.success) {
-          setMessage("Redirecting to sign-in...");
-          setTimeout(() => router.push("/auth/signin?verified=true"), 2000);
-        } else {
-          setMessage(json.error || "Invalid or expired verification link.");
-        }
-      } catch (err: any) {
-        console.error("Verification API error:", err);
-        setMessage("Unexpected error occurred.");
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    verify();
+    setLoading(false);
   }, [searchParams, router]);
 
   return (
