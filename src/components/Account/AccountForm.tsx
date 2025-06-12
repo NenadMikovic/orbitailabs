@@ -238,7 +238,7 @@ export default function AccountDashboard() {
 {selected === 'downloads' && (
   <div className="bg-white/10 border border-white/10 rounded-xl p-6 shadow-md text-white">
     <h3 className="text-xl font-semibold mb-4">Downloads</h3>
-    <p>Here you'll find all available Stellaris bot downloads for MT4 and MT5.</p>
+    <p>Here you&apos;ll find all available Stellaris bot downloads for MT4 and MT5.</p>
   </div>
 )}
 
