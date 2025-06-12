@@ -140,14 +140,14 @@ const Header = () => {
               ) : (
                 <>
                   <Link
-                    href="/auth/signin"
+                    href="https://app.orbitailabs.com/auth/supabase/sign-in/"
                     onClick={() => setNavigationOpen(false)}
                     className="text-sm text-white hover:text-opacity-75"
                   >
                     Sign In
                   </Link>
                   <Link
-                    href="/auth/signup"
+                    href="https://app.orbitailabs.com/auth/supabase/sign-up/"
                     onClick={() => setNavigationOpen(false)}
                     className="button-border-gradient hover:button-gradient-hover relative flex items-center gap-1.5 rounded-lg px-4.5 py-2 text-sm text-white shadow-button hover:shadow-none"
                   >
