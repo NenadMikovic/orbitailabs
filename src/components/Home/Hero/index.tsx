@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import GalaxyCanvas from "@/components/GalaxyCanvas";
+
 
 const Hero = () => {
   return (
@@ -56,6 +58,7 @@ const Hero = () => {
         </div>
       </div>
 {/* <!-- bg circles --> */}
+
         <div className="relative top-18">
           <div className="pointer-events-none absolute inset-0 -z-10 -my-55 overflow-hidden">
             <div className="absolute left-1/2 top-0 mx-auto aspect-square w-full max-w-[925px] -translate-x-1/2">
@@ -83,7 +86,7 @@ const Hero = () => {
               />
             </div>
           </div>
-          <div className="pricing-circle absolute left-1/2 top-0 h-[830px] w-full max-w-[830px] -translate-x-1/2 rounded-full bg-dark"></div>
+          <GalaxyCanvas />
 
           <div className="absolute -top-30 left-1/2 -z-1 h-60 w-full max-w-[482px] -translate-x-1/2 overflow-hidden">
             <div className="stars"></div>
@@ -91,7 +94,7 @@ const Hero = () => {
           </div>
         </div>
       <div
-        className='relative mx-auto mt-17 aspect-1170/411 w-full max-w-[1170px]'
+        className='relative mx-auto mt-1 h-[100px] aspect-1170/411 w-full max-w-[1170px]'
         data-wow-delay='0.1s'
       >
         
